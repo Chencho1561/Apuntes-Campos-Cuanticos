@@ -1,0 +1,1641 @@
+ \documentclass[a4paper,11pt]{book} %Formato de página
+\usepackage[spanish,es-tabla]{babel} %Adaptación de LATEX al español (es-tabla hace que el pie de las tablas se denomine "tabla")
+\usepackage{anysize} %Permite ajustar los margenes con el comando "\marginsize"
+\usepackage{enumitem} %Paquete para personalizar los entronos de listas (enumerate, itemize and description)
+\usepackage{graphicx} %Paquete para introducir imagenes (1 punto = 0.3528 mm)
+\usepackage{subcaption} %Paquete para manejar subimagenes (listas de imagenes) 
+\usepackage{caption} %Permite configurar las leyendas de figuras y tablas
+\usepackage{multicol} % define un entorno multicols que compone texto en múltiples columnas (hasta un máximo de 10) 
+\usepackage{float} %Permite controlar la posición exacta de los objetos flotantes (imagenes, tablas,etc...)
+\usepackage{ulem} %Agrega multiples estilos para el el subrayado.
+\usepackage{amsmath} %Añade comandos al entorno matemático de latex
+\usepackage{mathtools}%Añade comandos al entorno matemático de latex
+\usepackage{units} %Permite modificar las unidades e introducir fracciones tipo m/s de forma bonita.
+\usepackage{amsfonts} %Agrega fuentes matemáticas y simbolos de utilidad
+\usepackage{amsthm} %Permite escribir lemas, colorarios, teoremas, etc... de forma profesional
+\usepackage{amssymb}
+\usepackage{wrapfig} %Permite escribir texto alrededor de las imagenes
+\usepackage{multirow} %Agrega elementos y aumenta la eficacia del entorno de tablas
+\usepackage{fancyhdr} %Entorno para escribir pies de páginas 
+\usepackage{setspace} %Permite cambiar el espacio entre lineas
+\usepackage{appendix} %Permite agragar y modificar apendices
+\usepackage{longtable} %Permite escribir tablas que ocupan más de una página
+\usepackage{mdframed}  %Permite enmarcar y colorear
+\usepackage{tocloft} % Paquete para personalizar el índice
+\usepackage[table,xcdraw]{xcolor} %Paquete para colorear las tablas con la web online de tablas
+\usepackage[most]{tcolorbox} %Proporciona un entorno para cuadros de texto enmarcados y coloreados con una línea de encabezado$
+\usepackage[hidelinks]{hyperref} %Permite crear hipervinculos
+\usepackage[hang,flushmargin]{footmisc} %proporciona medios para cambiar el diseño de las notas al pie
+\usepackage{nicefrac, xfrac}
+\usepackage{dsfont} % Para \mathds
+\usepackage{bbm}    % Para \mathbbm
+\usepackage{natbib} %Bibliografia estilo APS
+\usepackage{braket} % Para escribir bra-ket de forma sencilla
+
+%------------------------------------------------------------------------------------------------------------------------------------------
+                     %WEB CON TODAS LAS BIBLIOTECAS Y TODA SU DOCUMENTACIÓN "https://ctan.org/"%
+%------------------------------------------------------------------------------------------------------------------------------------------
+
+%Personalizamos los hipervinculos
+\hypersetup{colorlinks = true, linkcolor=black}
+\hypersetup{colorlinks = true, urlcolor=blue}
+
+% Personalización del índice
+\setcounter{tocdepth}{1}
+\renewcommand{\cftsecfont}{\color{black}} % Sección en negro
+\renewcommand{\cftsubsecfont}{\color{black}} % Subsección en negro
+\setlength{\cftbeforesecskip}{1.5em} % Espaciado antes de cada sección en el índice
+\setlength{\cftbeforesubsecskip}{1.2em} % Espaciado antes de cada subsección
+
+%Preparamos la forma de nuestras páginas y elegimos un estilo para los pies y cabezas de página
+\marginsize{3cm}{3cm}{2.5cm}{2cm}
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+\fancyhf{} % limpia todo
+\fancyhead[RE]{\leftmark}         % capítulo en páginas pares
+\fancyhead[LO]{\rightmark}        % sección en páginas impares
+\fancyfoot[C]{\thepage}           % número de página abajo centrado
+%------------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{document}
+\include{Portada/Portada.tex}
+\tableofcontents % Genera el índice automáticamente
+\newpage
+
+%------------------------------------------------------------------------------------------------------------------------------------------
+\chapter{Introducción}
+\begin{quote}
+\textit{``No existen sistemas reales de una sola partícula en la naturaleza, ni siquiera 
+sistemas de pocas partículas. La existencia de pares virtuales y de fluctuaciones muestra que los días de los números fijos de partículas han terminado.''}
+\begin{flushright}
+\textit{Viki Weisskopf}
+\end{flushright}
+\end{quote}
+\section{Descripción general}
+\noindent
+En la física clásica, la razón principal para introducir el concepto de campo es 
+construir leyes de la Naturaleza que sean \textit{locales}. Las antiguas leyes de 
+Coulomb y Newton implican ``acción a distancia''. Esto significa que la fuerza 
+sentida por un electrón (o un planeta) cambia inmediatamente si un protón (o una 
+estrella) distante se mueve. Esta situación es filosóficamente insatisfactoria. Más 
+importante aún, también es experimentalmente incorrecta. Las teorías de campo de 
+Maxwell y Einstein remedian la situación, con todas las interacciones mediadas de 
+forma local por el campo.
+\medskip\newline
+El requisito de localidad sigue siendo una fuerte motivación para estudiar las 
+teorías de campos en el mundo cuántico. Sin embargo, hay razones adicionales para 
+tratar el campo cuántico como fundamental.
+\medskip\newline
+\textbf{Las partículas no son objetos indestructibles}, son, de hecho, en su 
+mayoría efímeras y fugaces. Este hecho verificado experimentalmente fue predicho 
+primero por Dirac, quien comprendió cómo la relatividad implica la necesidad de las 
+antipartículas.
+\medskip\newline
+La presencia de multitud de partículas y antipartículas a distancias cortas nos dice 
+que cualquier intento de escribir una versión relativista de la ecuación de 
+Schrödinger de una partícula está condenado al fracaso. No existe ningún mecanismo 
+en la mecánica cuántica no relativista estándar para tratar los cambios en el número 
+de partículas. De hecho, cualquier intento ingenuo de construir una versión 
+relativista de la ecuación de Schrödinger de una partícula se encuentra con serios 
+problemas. (Las probabilidades negativas, las torres infinitas de estados de energía 
+negativa o la ruptura de la causalidad son los problemas habituales que surgen.) 
+\medskip\newline
+En cada caso, este fracaso nos está diciendo que una vez que entramos en el régimen 
+relativista, necesitamos un nuevo formalismo para tratar estados con un número no 
+especificado de partículas. Este formalismo es la teoría cuántica de campos (TCC).
+\newpage\noindent
+\textbf{Todas las partículas del mismo tipo son iguales}. Esto suena bastante trivial. ¡Pero no lo es! Lo que quiero decir es que dos 
+electrones son idénticos en todos los aspectos. Lo mismo ocurre con cualquier otra partícula fundamental.  Una explicación que podría ofrecerse es 
+que hay un mar de ``sustancia'' de protón llenando el universo y cuando hacemos un 
+protón de alguna manera metemos la mano en esta sustancia y de ella moldeamos un 
+protón. Entonces no es sorprendente que los protones producidos en diferentes partes 
+del universo sean idénticos: están hechos de la misma sustancia. Resulta que esto es 
+aproximadamente lo que ocurre. La ``sustancia'' es el campo del protón o, si se mira 
+con suficiente detalle, los campos del quark y del gluon.
+\medskip\newline
+En mecánica 
+cuántica hay que introducir estas estadísticas a mano y,
+para estar de acuerdo con el experimento, se deben elegir las estadísticas de Bose (sin signo negativo) para partículas de espín entero, y las estadísticas de Fermi (con signo negativo) para partículas de espín semientero. En la teoría cuántica de 
+campos, esta relación entre espín y estadística no es algo que haya que introducir a 
+mano. Es, más bien, una consecuencia del formalismo.
+\subsection*{¿Qué es la Teoría Cuántica de Campos?}
+\noindent
+Habiendo explicado por qué la TCC es necesaria, deberíamos dar una definición de lo que realmente es. 
+La pista está en el nombre: es la cuantización de un campo clásico.
+\medskip\newline
+En la mecánica cuántica estándar, se nos enseña a tomar los grados de libertad clásicos y promoverlos a operadores que 
+actúan sobre un espacio de Hilbert. Las reglas para cuantizar un campo no son diferentes. Así, los grados de libertad básicos en la teoría cuántica de campos son \textit{funciones con valor de operador del espacio y el tiempo}. Esto significa que estamos tratando con un número infinito de grados de libertad, al menos uno por cada punto del espacio.
+\medskip\newline
+Resultará que las posibles interacciones en la teoría cuántica de campos están gobernadas por unos pocos principios básicos: localidad, simetría y el flujo del grupo de renormalización (el desacoplamiento de los fenómenos de corta distancia de la física a escalas mayores). Estas ideas hacen de la TCC un marco muy robusto.
+
+\subsection*{¿Para qué sirve la Teoría Cuántica de Campos?}
+\noindent
+Como hemos destacado anteriormente, para cualquier sistema relativista es una necesidad. Pero también es una herramienta muy útil en 
+sistemas no relativistas con muchas partículas. La teoría cuántica de campos ha tenido un gran impacto en la materia condensada, la física de altas energías, la cosmología, la gravedad cuántica y las matemáticas puras. Es literalmente el lenguaje en el que están escritas las leyes de la Naturaleza.
+\newpage
+\section{Unidades y Notación}
+\noindent
+La naturaleza nos presenta tres constantes fundamentales con dimensiones: la 
+velocidad de la luz $c$, la constante de Planck (dividida por $2\pi$) $\hbar$, 
+y la constante de Newton $G$. Sus dimensiones son:
+
+\begin{align}
+    [c] &= LT^{-1} \\
+    [\hbar] &= L^2 M T^{-1} \\
+    [G] &= L^3 M^{-1} T^{-2}
+\end{align}
+Usaremos unidades naturales $\hbar = c = 1$, donde las siguientes magnitudes 
+tienen las mismas dimensiones:
+\begin{equation}
+[\text{longitud}] = [\text{tiempo}] = [\text{energía}]^{-1} = [\text{masa}]^{-1}
+\end{equation}
+Una relación muy útil es:
+\begin{equation}
+    \hbar c = 197.3269631(49) \ \text{MeV fm} \implies 
+    25 \ \text{GeV}^{-2} \simeq 10^{-30} \ \text{m}^2 = 10 \ \text{mbarn}
+    \tag{1.1}
+\end{equation}
+donde $1 \ \text{fm} = 10^{-15} \ \text{m}$ 
+\subsection{Unidades Heaviside-Lorentz}
+\noindent
+En el Sistema Internacional (SI), las ecuaciones de Maxwell se escriben como
+\begin{equation}
+\left\{
+\begin{aligned}
+    \vec{\nabla}\cdot \vec{E} &= \frac{\rho}{\varepsilon_0}, \\
+    \vec{\nabla}\cdot \vec{B} &= 0, \\
+    \vec{\nabla}\times \vec{B} 
+    &= \mu_0 \vec{J}
+    + \frac{1}{c^2}\frac{\partial \vec{E}}{\partial t}, \\
+    \vec{\nabla}\times \vec{E}
+    &= -\frac{\partial \vec{B}}{\partial t}.
+\end{aligned}
+\right.
+\end{equation}
+donde
+\begin{equation}
+    c^2 = \frac{1}{\varepsilon_0 \mu_0},
+    \qquad
+    \alpha = \frac{e_{\text{SI}}^2}{4\pi \varepsilon_0 \hbar c}.
+\end{equation}
+La definición de las unidades gaussianas consiste en absorber el factor
+$\varepsilon_0$ dentro de la definición de la carga.
+\begin{equation}
+    Q_G^2 = \frac{Q_{\text{SI}}^2}{4\pi\varepsilon_0}.
+\end{equation}
+Por tanto, en unidades gaussianas la constante de estructura fina queda definida por:
+\begin{equation}
+    \alpha = \frac{e_G^2}{\hbar c}.
+\end{equation}
+Las ecuaciones de Maxwell en unidades gaussianas toman la forma
+\begin{equation}
+\left\{
+\begin{aligned}
+    \vec{\nabla}\cdot \vec{E}_G &= 4\pi \rho_G, \\
+    \vec{\nabla}\cdot \vec{B}_G &= 0, \\
+    \vec{\nabla}\times \vec{B}_G 
+    - \frac{1}{c}\frac{\partial \vec{E}_G}{\partial t}
+    &= \frac{4\pi}{c}\vec{J}_G, \\
+    \vec{\nabla}\times \vec{E}_G
+    + \frac{1}{c}\frac{\partial \vec{B}_G}{\partial t}
+    &= 0.
+\end{aligned}
+\right.
+\end{equation}
+Las unidades de Heaviside--Lorentz son una versión racionalizada de las
+unidades gaussianas, es decir, una elección de unidades en la que se absorben
+los factores $4\pi$ que aparecen en las ecuaciones de Maxwell gaussianas.
+La relación entre los campos y las fuentes gaussianas y los campos y fuentes
+de Heaviside--Lorentz es
+\begin{equation}
+    \vec{E}_{HL} = \frac{\vec{E}_G}{\sqrt{4\pi}},
+    \qquad
+    \vec{B}_{HL} = \frac{\vec{B}_G}{\sqrt{4\pi}},
+\end{equation}
+\begin{equation}
+    \rho_{HL} = \sqrt{4\pi}\rho_G,
+    \qquad
+    \vec{J}_{HL} = \sqrt{4\pi}\vec{J}_G.
+\end{equation}
+Con estas definiciones, las ecuaciones de Maxwell quedan racionalizadas:
+\begin{equation}
+\left\{
+\begin{aligned}
+    \vec{\nabla}\cdot \vec{E}_{HL} &= \rho_{HL}, \\
+    \vec{\nabla}\cdot \vec{B}_{HL} &= 0, \\
+    \vec{\nabla}\times \vec{E}_{HL}
+    + \frac{1}{c}\frac{\partial \vec{B}_{HL}}{\partial t}
+    &= 0, \\
+    \vec{\nabla}\times \vec{B}_{HL}
+    - \frac{1}{c}\frac{\partial \vec{E}_{HL}}{\partial t}
+    &= \frac{1}{c}\vec{J}_{HL}.
+\end{aligned}
+\right.
+\end{equation}
+Estas serán las unidades que utilizaremos, donde la constante de estructura fina y la unidad de carga quedan definidas por:
+\begin{equation}
+    \alpha
+    =
+    \frac{e^2}{4\pi \hbar c}
+    =
+    \frac{1}{137.03599911(46)}.
+\end{equation}
+\begin{equation}
+    e = \sqrt{4\pi \alpha},
+\end{equation}
+\noindent
+Todo esto nos permite definir el potencial de Coulomb entre dos cargas de la siguiente forma:
+\begin{equation}
+    Q_1 = e q_1,
+    \qquad
+    Q_2 = e q_2,
+\end{equation}
+es
+\begin{equation}
+    V(r)
+    =
+    \frac{Q_1 Q_2}{4\pi r}
+    =
+    \frac{q_1 q_2 \alpha}{r}.
+\end{equation}
+\section{Geometría Diferencial}
+\noindent
+En esta sección se presenta el marco geométrico y las convenciones necesarias para trabajar con objetos definidos sobre variedades. De esta forma, para definir en el espacio-tiempo de Minkowski, utilizaremos la siguiente convención de signos
+\begin{equation}
+    \eta_{\mu\nu} = g_{\mu\nu} = g^{\mu\nu}
+    =
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 \\
+        0 & 0 & -1 & 0 \\
+        0 & 0 & 0 & -1
+    \end{pmatrix}.
+\end{equation}\noindent
+Por tanto, la métrica\footnote{La métrica permite definir productos escalares relativistas, subir y bajar
+índices, y distinguir entre componentes contravariantes y covariantes. En
+particular, satisface $g^{\mu\alpha}g_{\alpha\nu} = \delta^\mu_{\nu}$.} tiene signatura
+\begin{equation}
+    \eta_{\mu\nu} = (+,-,-,-).
+\end{equation}
+\newpage\noindent
+Usaremos la convención de Einstein de suma sobre índices repetidos. Es decir,
+si un índice aparece una vez arriba y una vez abajo, se entiende que se suma
+sobre todos sus valores:
+\begin{equation}
+A_\mu B^\mu
+=
+\sum_{\mu=0}^{3} A_\mu B^\mu
+=
+g_{\mu\nu} A^\mu B^\nu
+=
+A^0B^0 - A^1B^1 - A^2B^2 - A^3B^3.
+\end{equation}
+\noindent
+Los índices griegos toman valores espacio-temporales
+\[
+    \mu,\nu,\rho,\sigma,... = 0,1,2,3.
+\]
+mientras que los índices latinos denotan únicamente componentes espaciales
+\[
+    i,j,k, ... = 1,2,3.
+\]
+\subsection{Vectores contravariantes y covariantes}
+\noindent
+Un vector geométrico puede escribirse como combinación lineal de los vectores de una base. En coordenadas \(x^\mu\), la base natural del espacio tangente se denota por:
+\begin{equation}
+    \partial_\mu \equiv \frac{\partial}{\partial x^\mu}.
+\end{equation}
+Por tanto, un vector se escribe como
+\begin{equation}
+    V = V^\mu \partial_\mu.
+\end{equation}
+Aquí es importante distinguir entre el vector completo, sus componentes y los
+vectores de la base. Las cantidades $V^\mu$ son las componentes contravariantes del vector, y por eso llevan índices superiores. En cambio, $\partial_\mu$ son los vectores de la base coordenada, y llevan índice inferior.
+\medskip\newline
+Bajo un cambio de coordenadas \(x^\mu \mapsto x'^\mu\), las componentes
+contravariantes del vector se transforman como:
+\begin{equation}
+    V'^\mu
+    =
+    \frac{\partial x'^\mu}{\partial x^\nu} V^\nu.
+\end{equation}
+La base, sin embargo, se transforma de forma opuesta:
+\begin{equation}
+    \partial'_\mu
+    =
+    \frac{\partial x^\nu}{\partial x'^\mu}\partial_\nu.
+\end{equation}
+Por eso el objeto completo $V = V^\mu \partial_\mu$
+es independiente del sistema de coordenadas elegido.
+\medskip\newline
+De forma dual, un covector se escribe como: $$\omega = \omega_\mu dx^\mu$$
+donde las $\omega_\mu$ representan las componentes covariantes del covector, y $dx^\mu$ son los elementos de la base dual.
+\medskip\newline
+Siguiendo un razonamiento similar, las componentes covariantes y la base dual se transforman bajo \(x^\mu \mapsto x'^\mu\) siguiendo la siguiente regla:
+\begin{equation}
+    \omega'_\mu
+    =
+    \frac{\partial x^\nu}{\partial x'^\mu}\omega_\nu \qquad 
+    dx'^\mu
+    =
+    \frac{\partial x'^\mu}{\partial x^\nu}dx^\nu.
+\end{equation}
+\newpage\noindent
+La métrica permite pasar de componentes contravariantes a covariantes, y
+viceversa:
+\begin{equation}
+    V_\mu = g_{\mu\nu}V^\nu,
+    \qquad
+    V^\mu = g^{\mu\nu}V_\nu.
+\end{equation}
+\noindent
+\textbf{Ejemplo 1} 
+\medskip\newline\noindent
+Si $V^\mu = (V^0,V^1,V^2,V^3)$,
+entonces, con la métrica de Minkowski,
+\begin{equation}
+    V_\mu
+    =
+    g_{\mu\nu}V^\nu
+    =
+    (V^0,-V^1,-V^2,-V^3).
+\end{equation}
+\begin{flushright}
+    \(\square\)
+\end{flushright}
+Así, para el cuadrivector posición se tiene:
+\begin{equation}
+    x^\mu = (x^0,\vec{x}) = (t,\vec{x}),
+    \qquad
+    x_\mu = (t,-\vec{x}).
+\end{equation}
+\subsection{Derivadas parciales y operador d'Alembertiano}
+\noindent
+La derivada parcial, que mide cómo cambian numéricamente las componentes de un objeto, se denota por:
+\begin{equation}
+    \partial_\mu = \frac{\partial}{\partial x^\mu}.
+\end{equation}
+Al subir el índice con la métrica obtenemos $\partial^\mu = g^{\mu\nu}\partial_\nu$, que con nuestra convención de signos:
+\begin{equation}
+    \partial_\mu = (\partial_0,\partial_i),
+    \qquad
+    \partial^\mu = (\partial_0,-\partial_i).
+\end{equation}
+\noindent donde $\partial_0 = \frac{\partial}{\partial t},
+    \partial_i = \frac{\partial}{\partial x^i}$.
+\medskip\newline\noindent
+El operador d'Alembertiano generaliza para un espacio-tiempo de Minkowski el operador laplaciano clásico, quedando definido como el producto escalar del cuadrigradiente consigo mismo:
+\begin{equation}
+    \Box
+    =
+    \partial_\mu \partial^\mu
+    =
+    \partial_0^2 - \nabla^2,
+\end{equation}
+donde $\nabla^2
+    =
+    \partial_x^2 + \partial_y^2 + \partial_z^2$.
+\medskip\newline
+De esta forma, el operador cuadrimomento se puede representar como:
+\begin{equation}
+    p^\mu = i\partial^\mu.
+\end{equation}
+\noindent
+donde las componentes espaciales y temporal vienen dadas por:,
+\begin{equation}
+    p^0 = i\frac{\partial}{\partial x^0}
+        = i\frac{\partial}{\partial t}
+\qquad
+    p^i = i\partial^i = -i\partial_i
+        = -i\frac{\partial}{\partial x^i}.
+\end{equation}
+\subsection*{Derivadas covariantes}
+\noindent
+En un espacio plano, como el espacio de Minkowski escrito en coordenadas
+cartesianas, las derivadas covariantes coinciden con las derivadas parciales.
+Sin embargo, en coordenadas generales o en espacios curvos, es necesario
+introducir términos de conexión para que las derivadas transformen
+correctamente como tensores.
+\medskip\newline
+Para un vector contravariante, la derivada covariante se define como
+\begin{equation}
+    \nabla_\mu V^\nu
+    =
+    \partial_\mu V^\nu
+    +
+    \Gamma^\nu_{\mu\rho}V^\rho.
+\end{equation}
+\noindent
+Para un covector, la derivada covariante es
+\begin{equation}
+    \nabla_\mu \omega_\nu
+    =
+    \partial_\mu \omega_\nu
+    -
+    \Gamma^\rho_{\mu\nu}\omega_\rho.
+\end{equation}
+\noindent
+La conexión se denota mediante los símbolos de Christoffel, estos coeficientes indican cómo cambia la base de vectores de un punto a otro. En una variedad con métrica \(g_{\mu\nu}\), y usando la conexión de Levi-Civita, los símbolos de Christoffel vienen dados explícitamente por:
+\begin{equation}
+    \Gamma^\rho_{\mu\nu}
+    =
+    \frac{1}{2}g^{\rho\sigma}
+    \left(
+        \partial_\mu g_{\nu\sigma}
+        +
+        \partial_\nu g_{\mu\sigma}
+        -
+        \partial_\sigma g_{\mu\nu}
+    \right).
+\end{equation}
+\noindent
+Esta conexión es compatible con la métrica $\nabla_\rho g_{\mu\nu} = 0$, y no tiene torsión $\Gamma^\rho_{\mu\nu} = \Gamma^\rho_{\nu\mu}$.
+\medskip\newline
+Dado un tensor de tipo \((r,s)\), $T^{\alpha_1\cdots\alpha_r}{}_{\beta_1\cdots\beta_s}$, su derivada covariante queda definida según:
+\begin{equation}
+\begin{aligned}
+    \nabla_\mu
+    T^{\alpha_1\cdots\alpha_r}{}_{\beta_1\cdots\beta_s}
+    &=
+    \partial_\mu
+    T^{\alpha_1\cdots\alpha_r}{}_{\beta_1\cdots\beta_s}
+    \\
+    &\quad
+    +
+    \sum_{k=1}^{r}
+    \Gamma^{\alpha_k}_{\mu\rho}
+    T^{\alpha_1\cdots \rho \cdots \alpha_r}{}_{\beta_1\cdots\beta_s}
+    \\
+    &\quad
+    -
+    \sum_{k=1}^{s}
+    \Gamma^\rho_{\mu\beta_k}
+    T^{\alpha_1\cdots\alpha_r}{}_{\beta_1\cdots \rho \cdots \beta_s}.
+\end{aligned}
+\end{equation}
+donde en la primera suma se sustituye el índice contravariante
+\(\alpha_k\) por \(\rho\), mientras que en la segunda suma se sustituye el
+índice covariante \(\beta_k\) por \(\rho\).
+\subsection*{Derivada exterior}
+\noindent
+La derivada exterior es una operación que actúa sobre formas diferenciales.
+A diferencia de la derivada covariante, no depende de la métrica ni de los
+símbolos de Christoffel. 
+\medskip\newline
+Si \(f\) es una función escalar, es decir, una \(0\)-forma, su derivada exterior es:
+\begin{equation}
+    df = \partial_\mu f\, dx^\mu.
+\end{equation}
+\noindent
+Si \(\omega\) es una \(1\)-forma, $\omega = \omega_\mu dx^\mu$, su derivada exterior es la \(2\)-forma
+\begin{equation}
+    d\omega
+    =
+    \partial_\mu \omega_\nu \, dx^\mu \wedge dx^\nu.
+\end{equation}
+\noindent
+Debido a la antisimetría del producto exterior,
+\begin{equation}
+    dx^\mu \wedge dx^\nu = - dx^\nu \wedge dx^\mu,
+\end{equation}
+también podemos escribir
+\begin{equation}
+    d\omega
+    =
+    \frac{1}{2}
+    \left(
+        \partial_\mu \omega_\nu
+        -
+        \partial_\nu \omega_\mu
+    \right)
+    dx^\mu \wedge dx^\nu.
+\end{equation}
+La componente de \(d\omega\) es, por tanto,
+\begin{equation}
+    (d\omega)_{\mu\nu}
+    =
+    \partial_\mu \omega_\nu
+    -
+    \partial_\nu \omega_\mu.
+\end{equation}
+
+Si escribimos esta expresión usando derivadas covariantes, obtenemos
+\begin{equation}
+    (d\omega)_{\mu\nu}
+    =
+    \nabla_\mu \omega_\nu
+    -
+    \nabla_\nu \omega_\mu.
+\end{equation}
+Sustituyendo explícitamente los términos de conexión,
+\begin{equation}
+\begin{aligned}
+    \nabla_\mu \omega_\nu
+    -
+    \nabla_\nu \omega_\mu
+    &=
+    \left(
+        \partial_\mu \omega_\nu
+        -
+        \Gamma^\rho_{\mu\nu}\omega_\rho
+    \right)
+    -
+    \left(
+        \partial_\nu \omega_\mu
+        -
+        \Gamma^\rho_{\nu\mu}\omega_\rho
+    \right)
+    \\
+    &=
+    \partial_\mu \omega_\nu
+    -
+    \partial_\nu \omega_\mu
+    -
+    \Gamma^\rho_{\mu\nu}\omega_\rho
+    \Gamma^\rho_{\nu\mu}\omega_\rho.
+\end{aligned}
+\end{equation}
+\noindent
+Para la conexión de Levi-Civita, que es simétrica en los índices inferiores, los términos de conexión se cancelan. Por tanto:
+\begin{equation}
+    (d\omega)_{\mu\nu}
+    =
+    \partial_\mu \omega_\nu
+    -
+    \partial_\nu \omega_\mu.
+\end{equation}
+Esto muestra que la derivada exterior de una \(1\)-forma no depende de la
+conexión, sino únicamente de la parte antisimétrica de sus derivadas parciales.
+\medskip\newline
+Para una \(p\)-forma general, $ \omega
+    =
+    \frac{1}{p!}
+    \omega_{\mu_1\cdots\mu_p}
+    dx^{\mu_1}\wedge\cdots\wedge dx^{\mu_p}$,la derivada exterior se define como:
+\begin{equation}
+    d\omega
+    =
+    \frac{1}{p!}
+    \partial_\nu \omega_{\mu_1\cdots\mu_p}
+    dx^\nu \wedge dx^{\mu_1}\wedge\cdots\wedge dx^{\mu_p}.
+\end{equation}
+Equivalentemente, en componentes,
+\begin{equation}
+    (d\omega)_{\nu\mu_1\cdots\mu_p}
+    =
+    (p+1)\,
+    \partial_{[\nu}
+    \omega_{\mu_1\cdots\mu_p]},
+\end{equation}
+donde los corchetes indican antisimetrización\footnote{La antisimetrización de índices consiste en tomar una expresión tensorial y quedarse únicamente con la parte que cambia de signo al intercambiar dos índices. Para dos índices, como
+\begin{equation}
+    T_{[\mu\nu]}
+    \equiv
+    \frac{1}{2}
+    \left(
+  T_{\mu\nu}
+   -
+T_{\nu\mu}
+    \right).
+\end{equation}} de los índices.
+\subsection*{Relación entre derivada covariante y derivada exterior}
+\noindent
+La derivada covariante mide cómo cambia un tensor teniendo en cuenta la
+variación de la base. Por eso depende de la conexión
+\medskip\newline
+En cambio, la derivada exterior mide la variación antisimétrica de una forma
+diferencial y no necesita conexión. La razón es que, al antisimetrizar, los términos simétricos de la conexión de Levi-Civita se cancelan.
+\subsection{Producto escalar relativista}
+\noindent
+El producto escalar entre dos cuadrivectores se define mediante la métrica:
+\begin{equation}
+    V\cdot W
+    =
+    g_{\mu\nu}V^\mu W^\nu
+    =
+    V_\nu W^\nu.
+\end{equation}
+\noindent
+En particular, para el cuadrimomento,
+\begin{equation}
+    p^\mu = i\partial^\mu = (p^0,\vec{p}) = (E,\vec{p}),
+\qquad
+    p_\mu = g_{\mu\nu}p^\nu = (E,-\vec{p}).
+\end{equation}
+\noindent
+Lo que nos permite discernir el siguiente resultado:
+\begin{equation}
+    p^\mu p_\mu
+    =
+    p^\mu g_{\mu\nu}p^\nu
+    =
+    E^2 - |\vec{p}|^2.
+\end{equation}
+\noindent
+Para una partícula de masa \(m\), esta cantidad es invariante y satisface
+\begin{equation}
+    p^\mu p_\mu = m^2.
+\end{equation}
+\section{Matrices de Dirac}
+\noindent
+Las matrices de Dirac \(\gamma^\mu\) aparecen al construir ecuaciones
+relativistas de primer orden en derivadas, como la ecuación de Dirac. Estas
+matrices satisfacen el álgebra de Clifford asociada a la métrica de Minkowski,
+\begin{equation}
+    \left\{
+        \gamma^\mu,\gamma^\nu
+    \right\}
+    =
+    \gamma^\mu\gamma^\nu
+    +
+    \gamma^\nu\gamma^\mu
+    =
+    2\eta^{\mu\nu}.
+\end{equation}
+\noindent
+Con la convención de signatura se obtiene:
+\begin{equation}
+    \left(\gamma^0\right)^2 = 1,
+    \qquad
+    \left(\gamma^i\right)^2 = -1,
+    \qquad i=1,2,3.
+\end{equation}
+\noindent
+Además, \(\gamma^0\) es hermítica, mientras que las matrices espaciales
+\(\gamma^i\) son antihermíticas:
+
+\begin{equation}
+    \left(\gamma^0\right)^\dagger = \gamma^0,
+    \qquad
+    \left(\gamma^i\right)^\dagger = -\gamma^i.
+\end{equation}
+\noindent
+De forma compacta, esto puede escribirse como
+\begin{equation}
+    \left(\gamma^\mu\right)^\dagger
+    =
+    \gamma^0\gamma^\mu\gamma^0.
+\end{equation}
+\subsection{Matriz \texorpdfstring{\(\gamma^5\)}{gamma5}}
+\noindent
+La matriz \(\gamma^5\) se define como:
+\begin{equation}
+    \gamma^5
+    =
+    i\gamma^0\gamma^1\gamma^2\gamma^3.
+\end{equation}
+\noindent
+Esta matriz satisface
+\begin{equation}
+    \left(\gamma^5\right)^2 = 1,
+    \qquad
+    \left(\gamma^5\right)^\dagger = \gamma^5,
+    \qquad
+    \left\{\gamma^5,\gamma^\mu\right\} = 0.
+\end{equation}
+\noindent
+Es decir, \(\gamma^5\) es hermítica, su cuadrado es la identidad y anticonmuta
+con todas las matrices \(\gamma^\mu\). Esta matriz será fundamental para
+describir quiralidad y proyectores quirales.
+
+\subsection{Generadores espinoriales de Lorentz}
+\noindent
+Se define también el tensor
+\begin{equation}
+    \sigma^{\mu\nu}
+    =
+    \frac{i}{2}
+    \left[
+        \gamma^\mu,\gamma^\nu
+    \right],
+\end{equation}
+\noindent
+donde
+
+\begin{equation}
+    \left[
+        \gamma^\mu,\gamma^\nu
+    \right]
+    =
+    \gamma^\mu\gamma^\nu
+    -
+    \gamma^\nu\gamma^\mu.
+\end{equation}
+\noindent
+Los objetos \(\sigma^{\mu\nu}\) actuarán como generadores de
+las transformaciones de Lorentz sobre espinores.
+\subsection{Representación quiral o de Weyl}
+\noindent
+Una representación especialmente útil del álgebra de matrices \(\gamma^\mu\)
+es la representación quiral, también llamada representación de Weyl. En ella:
+\begin{equation}
+    \gamma^0
+    =
+    \begin{pmatrix}
+        0 & \mathbb{1} \\
+        \mathbb{1} & 0
+    \end{pmatrix},
+    \qquad
+    \gamma^i
+    =
+    \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+    \end{pmatrix},
+    \qquad
+    \gamma^5
+    =
+    \begin{pmatrix}
+        -\mathbb{1} & 0 \\
+        0 & \mathbb{1}
+    \end{pmatrix}.
+\end{equation}
+\noindent
+Aquí \(\mathbb{1}\) representa la matriz identidad \(2\times 2\), y
+\(\sigma^i\) son las matrices de Pauli. Esta representación separa de forma
+natural las componentes quirales izquierda y derecha de un espinor.
+
+\subsection{Representación estándar}
+\noindent
+Otra representación habitual es la representación ordinaria o estándar. En
+esta base:
+\begin{equation}
+    \gamma^0
+    =
+    \begin{pmatrix}
+        \mathbb{1} & 0 \\
+        0 & -\mathbb{1}
+    \end{pmatrix},
+    \qquad
+    \gamma^i
+    =
+    \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+    \end{pmatrix},
+    \qquad
+    \gamma^5
+    =
+    \begin{pmatrix}
+        0 & \mathbb{1} \\
+        \mathbb{1} & 0
+    \end{pmatrix}.
+\end{equation}
+Esta representación es útil en muchos cálculos explícitos porque separa de
+forma clara las componentes de energía positiva y negativa en el límite no
+relativista.
+\subsection{Matrices sigma de Weyl}
+\noindent
+También se definen los objetos:
+
+\begin{equation}
+    \sigma^\mu
+    =
+    \left(
+        \mathbb{1},
+        \vec{\sigma}
+    \right),
+    \qquad
+    \bar{\sigma}^\mu
+    =
+    \left(
+        \mathbb{1},
+        -\vec{\sigma}
+    \right).
+\end{equation}
+\noindent
+Estas matrices son útiles para escribir espinores de Weyl y para separar la
+estructura quiral de las ecuaciones relativistas.
+
+\subsection{Trazas útiles de matrices gamma}
+\noindent
+En el cálculo de secciones eficaces y tasas de desintegración aparecen con
+frecuencia trazas de productos de matrices gamma. Algunas identidades básicas
+son:
+\begin{equation}
+    \mathrm{Tr}
+    \left(
+        \gamma^\mu\gamma^\nu
+    \right)
+    =
+    4\eta^{\mu\nu}.
+\end{equation}
+\noindent
+Para cuatro matrices gamma:
+\begin{equation}
+    \mathrm{Tr}
+    \left(
+        \gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma
+    \right)
+    =
+    4
+    \left(
+        \eta^{\mu\nu}\eta^{\rho\sigma}
+        -
+        \eta^{\mu\rho}\eta^{\nu\sigma}
+        +
+        \eta^{\mu\sigma}\eta^{\nu\rho}
+    \right).
+\end{equation}
+\noindent
+Y con una matriz \(\gamma^5\):
+
+\begin{equation}
+    \mathrm{Tr}
+    \left(
+        \gamma^5
+        \gamma^\mu
+        \gamma^\nu
+        \gamma^\rho
+        \gamma^\sigma
+    \right)
+    =
+    -4i\epsilon^{\mu\nu\rho\sigma}.
+\end{equation}
+\section{Matrices de Pauli}
+\noindent
+Las matrices de Pauli se definen como:
+\begin{equation}
+    \sigma^1
+    =
+    \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix},
+    \qquad
+    \sigma^2
+    =
+    \begin{pmatrix}
+        0 & -i \\
+        i & 0
+    \end{pmatrix},
+    \qquad
+    \sigma^3
+    =
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}.
+\end{equation}
+\noindent
+Estas matrices satisfacen la identidad
+\begin{equation}
+    \sigma^i\sigma^j
+    =
+    \delta^{ij}\mathbb{1}
+    +
+    i\epsilon^{ijk}\sigma^k.
+\end{equation}
+\noindent
+Esta relación recoge tanto su parte simétrica:
+
+\begin{equation}
+    \left\{
+        \sigma^i,\sigma^j
+    \right\}
+    =
+    2\delta^{ij}\mathbb{1},
+\end{equation}
+\noindent:
+como su parte antisimétrica:
+\begin{equation}
+    \left[
+        \sigma^i,\sigma^j
+    \right]
+    =
+    2i\epsilon^{ijk}\sigma^k.
+\end{equation}
+\newpage
+\section{Problemas MC Relativista}
+\noindent
+En mecánica cuántica no relativista, el estado de una partícula
+$\ket{\psi}$ evoluciona temporalmente mediante la ecuación de Schrödinger,
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t}\psi(\vec{x},t)
+    =
+    H\psi(\vec{x},t),
+\end{equation}
+\noindent
+donde
+\begin{equation}
+    \psi(\vec{x},t)
+    =
+    \braket{\vec{x}}{\psi(t)}
+\end{equation}
+\noindent
+es la función de onda en la representación de posiciones y \(H\) es el
+Hamiltoniano.
+\medskip\newline
+Para una teoría libre no relativista, la energía viene dada por
+\begin{equation}
+    E = \frac{\vec{p}^{\,2}}{2m},
+    \qquad
+    \vec{p} = -i\hbar \vec{\nabla}.
+\end{equation}
+\noindent
+Sustituyendo el operador momento en la relación de energía se obtiene la
+ecuación de Schrödinger libre:
+\begin{equation}
+    i\hbar \frac{\partial \psi}{\partial t}
+    =
+    -\frac{\hbar^2}{2m}\nabla^2\psi.
+\end{equation}
+En este caso, la densidad $\rho(\vec{x},t)=|\psi(\vec{x},t)|^2$ puede interpretarse como una densidad de probabilidad de encontrar la partícula
+en el intervalo \([\vec{x},\vec{x}+d\vec{x}]\). 
+\medskip\newline
+Además, satisface una ecuación de continuidad:
+\begin{equation}
+    \frac{\partial \rho}{\partial t}
+    =
+    -\vec{\nabla}\cdot \vec{j},
+\end{equation}
+que expresa la conservación de la probabilidad, donde la corriente de probabilidad es:
+
+\begin{equation}
+    \vec{j}
+    =
+    \frac{i\hbar}{2m}
+    \left(
+        \psi \vec{\nabla}\psi^*
+        -
+        \psi^*\vec{\nabla}\psi
+    \right).
+\end{equation}
+\subsection{Densidades de probabilidad negativas}
+\noindent
+El problema aparece cuando construimos una teoría relativista de una sola partícula. La relación relativista entre energía y momento es
+\begin{equation}
+    E^2 = \vec{p}^{\,2}c^2 + m^2c^4.
+\end{equation}
+\noindent
+Promoviendo la energía y el momento a operadores,
+\begin{equation}
+    E \rightarrow i\hbar \frac{\partial}{\partial t},
+    \qquad
+    \vec{p} \rightarrow -i\hbar\vec{\nabla},
+\end{equation}
+\noindent
+se obtiene
+\begin{equation}
+    -\hbar^2
+    \frac{\partial^2 \psi}{\partial t^2}
+    =
+    \left(
+        -\hbar^2 c^2\nabla^2
+        +
+        m^2c^4
+    \right)\psi.
+\end{equation}
+\noindent
+Equivalentemente,
+
+\begin{equation}
+    \frac{1}{c^2}
+    \frac{\partial^2 \psi}{\partial t^2}
+    =
+    \nabla^2\psi
+    -
+    \frac{m^2c^2}{\hbar^2}\psi.
+\end{equation}
+\newpage\noindent
+En unidades naturales, esta ecuación toma la forma:
+\begin{equation}
+    \left(
+        \Box + m^2
+    \right)\psi = 0,
+\end{equation}
+\noindent
+que es la ecuación de Klein--Gordon.
+\medskip\newline
+Aunque esta ecuación es relativista, no permite interpretar directamente
+\(\rho\) como una densidad de probabilidad positiva. La cantidad conservada que
+se obtiene a partir de la ecuación de Klein--Gordon es:
+
+\begin{equation}
+    \rho
+    =
+    \frac{i\hbar}{2mc^2}
+    \left(
+        \psi^*\frac{\partial \psi}{\partial t}
+        -
+        \frac{\partial \psi^*}{\partial t}\psi
+    \right).
+\end{equation}
+\noindent
+Esta densidad satisface de nuevo una ecuación de continuidad,
+
+\begin{equation}
+    \frac{\partial \rho}{\partial t}
+    =
+    -\vec{\nabla}\cdot \vec{j}.
+\end{equation}
+\noindent
+Sin embargo, a diferencia del caso no relativista, esta \(\rho\) puede tomar
+cualquier signo. Es decir,
+
+\begin{equation}
+    \rho \in \mathbb{R},
+    \qquad
+    \rho \not\geq 0.
+\end{equation}
+\noindent
+Por tanto, no puede interpretarse como una densidad de probabilidad. La razón profunda es que la ecuación de Klein--Gordon es una ecuación
+diferencial de segundo orden en el tiempo. Por ello, las condiciones iniciales
+\(\psi\) y \(\partial\psi/\partial t\) son independientes, lo que permite que
+la densidad \(\rho\), aunque sea real, pueda ser negativa.
+
+\subsection{Energías negativas}
+\noindent
+Otro problema característico de las ecuaciones de onda relativistas es la
+aparición de soluciones con energías negativas. En el caso no relativista, las ecuaciones de onda libres solo tienen soluciones
+de energía positiva. Por ejemplo, para la ecuación de Schrödinger,
+
+\begin{equation}
+    i\hbar \frac{\partial \psi}{\partial t}
+    =
+    -\frac{\hbar^2}{2m}\nabla^2\psi,
+\end{equation}
+\noindent
+podemos tomar soluciones de onda plana de la forma
+\begin{equation}
+    \psi(\vec{x},t)
+    \sim
+    e^{-i(Et-\vec{p}\cdot\vec{x})/\hbar}
+    =
+    e^{-i(\omega t-\vec{k}\cdot\vec{x})},
+\end{equation}
+\noindent
+con $
+    E = \frac{\vec{p}^{\,2}}{2m}$. Como \(\vec{p}^{\,2}\geq 0\), se tiene
+
+\begin{equation}
+    E > 0.
+\end{equation}
+\noindent
+En cambio, para una ecuación relativista libre, como la de Klein--Gordon en
+unidades naturales, la relación de dispersión es:
+\begin{equation}
+    E^2 = \vec{p}^{\,2} + m^2.
+\end{equation}
+Por tanto:
+
+\begin{equation}
+    E = \sqrt{\vec{p}^{\,2}+m^2}.
+\end{equation}
+\newpage\noindent
+Como las soluciones pueden aparecer con ambos signos de la energía:
+
+\begin{equation}
+\begin{cases}
+    \psi_+
+    \sim
+    e^{-ip_\mu x^\mu}
+    =
+    e^{-i(Et-\vec{p}\cdot\vec{x})},
+    \\[0.2cm]
+    \psi_-
+    \sim
+    e^{+ip_\mu x^\mu}
+    =
+    e^{+i(Et-\vec{p}\cdot\vec{x})}.
+\end{cases}
+\end{equation}
+\noindent
+Actuando con el operador energía \(i\partial_t\), se obtiene
+
+\begin{equation}
+    i\frac{\partial \psi_+}{\partial t}
+    =
+    +E\psi_+,
+\end{equation}
+\noindent
+mientras que
+\begin{equation}
+    i\frac{\partial \psi_-}{\partial t}
+    =
+    -E\psi_-.
+\end{equation}
+\noindent
+Por tanto:
+\begin{equation}
+    \psi_+
+    \quad \text{tiene energía} \quad +E>0,
+\qquad
+    \psi_-
+    \quad \text{tiene energía} \quad -E<0.
+\end{equation}
+\noindent
+Estos problemas indican que la interpretación correcta no debe hacerse en
+términos de una función de onda relativista de una sola partícula, sino mediante teoría cuántica de campos, donde las soluciones de energía negativa se reinterpretan en términos de antipartículas y los campos, no las funciones de onda, son los objetos fundamentales.
+
+\chapter{Simetrías de Lorentz y Poincarè}
+\noindent
+\textit{Mencionamos en la Introducción que la teoría cuántica de campos es una 
+síntesis de los principios de la mecánica cuántica y de la relatividad especial. 
+Nuestra primera tarea será entender cómo se implementa la simetría de Lorentz en 
+la teoría de campos. 
+\medskip\newline
+Estudiaremos las representaciones del grupo de Lorentz en 
+términos de campos e introduciremos los campos escalar, espinorial y vectorial. 
+Examinaremos después la información proveniente de la invariancia de Poincaré. 
+\medskip\newline
+Este capítulo es bastante matemático y formal, pero una comprensión de este enfoque en teoría de grupos simplifica enormemente la construcción de los Lagrangianos para los distintos campos y proporciona en general una comprensión más profunda de diversos 
+aspectos de la TCC.}
+
+
+\section{Grupos y Grupos de Lie}
+\noindent
+Antes de estudiar simetrías continuas, como las transformaciones de Lorentz o Poincaré, conviene recordar qué es un grupo y cómo actúa sobre espacios
+vectoriales. 
+\subsection{Grupo}
+\noindent
+Un grupo es un conjunto de elementos \(G\), no necesariamente numerable,
+dotado de una ley de composición interna $\cdot : G \times G \longrightarrow G$, tal que, para cualesquiera \(a,b,c \in G\), se satisfacen las siguientes propiedades:
+\begin{enumerate}
+    \item \textbf{Cierre:}
+    \begin{equation}
+        a,b \in G
+        \quad \Longrightarrow \quad
+        a\cdot b \in G.
+    \end{equation}
+    \item \textbf{Asociatividad:}
+    \begin{equation}
+        a\cdot (b\cdot c)
+        =
+        (a\cdot b)\cdot c.
+    \end{equation}
+    \item \textbf{Elemento neutro:} existe un elemento \(e \in G\) tal que
+    \begin{equation}
+        a\cdot e = e\cdot a = a,
+        \qquad
+        \forall a \in G.
+    \end{equation}
+    \item \textbf{Elemento inverso:} para cada \(a \in G\), existe un elemento
+    \(a^{-1}\in G\) tal que
+    \begin{equation}
+        a\cdot a^{-1}
+        =
+        a^{-1}\cdot a
+        =
+        e.
+    \end{equation}
+\end{enumerate}
+\noindent
+La operación del grupo no tiene por qué ser conmutativa. Es decir, en general $a\cdot b \neq b\cdot a$. Cuando sí se cumple \(a\cdot b=b\cdot a\) para todo par de elementos, el grupo se llama \textit{abeliano}.
+\newpage
+\subsection{Grupos de Lie}
+\noindent
+Un grupo de Lie es un grupo cuyos elementos dependen de forma continua y
+diferenciable de un conjunto de parámetros reales. Es decir, si $\theta = (\theta_1,\ldots,\theta_N)$ es un conjunto de \(N\) parámetros reales, podemos escribir sus elementos como $g(\theta) \in G$. 
+\medskip\newline
+El elemento neutro se obtiene para un valor particular de los parámetros, que normalmente se toma como \(\theta=0\):
+\begin{equation}
+    g(0)=e.
+\end{equation}
+\noindent
+Además, el inverso de un elemento cercano a la identidad puede escribirse como
+\begin{equation}
+    g^{-1}(\theta)=g(-\theta).
+\end{equation}
+\noindent
+La dimensión del grupo de Lie es el número de parámetros independientes que
+lo describen. En este caso, $\dim G = N.$
+\subsubsection{Subgrupo}
+\noindent
+Un subgrupo \(H\) de un grupo \(G\) es un subconjunto de \(G\) que también tiene estructura de grupo con la misma ley de composición. Es decir, si $H \subset G$, y \(h_1,h_2 \in H\), entonces:
+\begin{equation}
+    h_1 h_2 \in H,
+    \qquad
+    h^{-1}_1 \in H.
+\end{equation}
+\subsubsection{Subgrupo Invariante}
+\noindent
+Un subgrupo \(H\) se dice invariante, o normal, si para todo \(h\in H\) y todo \(g\in G\), se cumple:
+\begin{equation}
+    g h g^{-1} \in H.
+\end{equation}
+\noindent
+Esto significa que, al conjugar un elemento de \(H\) por cualquier elemento del grupo \(G\), el resultado sigue perteneciendo a \(H\).
+\subsubsection{Grupo Simple}
+\noindent
+Un grupo simple es aquel que no contiene ningún subgrupo invariante propio. Es decir, sus únicos subgrupos invariantes son el subgrupo trivial y el propio grupo:
+\begin{equation}
+    H = \{e\},
+    \qquad
+    \text{o}
+    \qquad
+    H = G.
+\end{equation}
+\noindent
+Por tanto, un grupo simple no puede descomponerse en partes normales más pequeñas.
+\section{Representaciones}
+\noindent
+Una representación de un grupo consiste en asociar a cada elemento del grupo
+un operador lineal que actué sobre un espacio vectorial. Más precisamente, una representación \(D\) de un grupo \(G\) sobre un espacio vectorial \(V\) es una aplicación $D_R : G \longrightarrow GL(V)$, tal que:
+\begin{equation}
+    D_R(g_1 g_2)
+    =
+    D_R(g_1)D_R(g_2),
+\end{equation}
+
+y
+\begin{equation}
+    D_R(e)=\mathds{1}.
+\end{equation}
+\noindent
+Aquí \(GL(V)\) es el grupo de transformaciones lineales invertibles sobre
+\(V\), y suele denominarse base de la representación $R$. Si \(V\) tiene dimensión \(n\), entonces \(D_R(g)\) puede representarse como una matriz \(n\times n\).
+\medskip\newline
+La representación permite describir cómo actúan las simetrías del grupo sobre objetos matemáticos concretos, como vectores, campos, espinores o tensores. Una misma simetría abstracta puede actuar sobre objetos distintos de formas diferentes. Por eso es necesario distinguir entre el grupo abstracto y sus distintas representaciones.
+\subsection{Representaciones equivalentes}
+\noindent
+Dos representaciones \(D_R\) y \(D_{R'}\) se dice que son equivalentes si están
+relacionadas mediante un cambio de base. Es decir, si existe una matriz
+invertible \(S\) tal que
+\begin{equation}
+    D_{R'}(g)
+    =
+    S^{-1}D_R(g)S,
+    \qquad
+    \forall g\in G.
+\end{equation}
+\noindent
+En ese caso, ambas representaciones describen la misma acción del grupo, pero
+escrita en bases distintas del espacio vectorial. Por tanto, no representan
+física o geométricamente situaciones diferentes, sino la misma estructura
+expresada con coordenadas distintas.
+\subsection{Representaciones Irreducibles}
+\noindent
+Una representación \(R\) se dice reducible si deja invariante algún subespacio
+no trivial del espacio vectorial sobre el que actúa. Es decir, si existe un
+subespacio \(W\subset V\), con $W \neq \{0\}$, $W \neq V$, tal que
+\begin{equation}
+    D_R(g)W \subset W,
+    \qquad
+    \forall g\in G.
+\end{equation}
+\noindent
+Esto significa que, si un vector empieza dentro de \(W\), la acción del grupo
+lo mantiene siempre dentro de \(W\). El subespacio \(W\) no se mezcla con el
+resto del espacio bajo la acción del grupo.
+\medskip\newline
+Si no existe ningún subespacio no trivial invariante, la representación se
+llama irreducible.
+\begin{equation}
+    R \ \text{irreducible (irr)}
+    \quad
+    \Longleftrightarrow
+    \quad
+    \nexists\, W\subset V
+    \ \text{no trivial tal que}\
+    D_R(g)W \subset W.
+\end{equation}
+\noindent
+Una representación es completamente reducible si puede escribirse como suma directa\footnote{Dado un espacio vectorial $V$, se dice que $V$ es la \textit{suma directa}
+de dos subespacios $U$ y $W$, y se escribe $V = U \oplus W$, si todo vector
+$v \in V$ se escribe de forma única como $v = u + w$ con $u \in U$ y $w \in W$,
+o equivalentemente, si $V = U + W$ y $U \cap W = \{0\}$. Un elemento se escribe como un par ordenado $(u, w), \quad u \in U, \quad w \in W$, o equivalentemente como  $u + w.$
+Ambas notaciones son equivalentes. La diferencia es que $u + w$ se emplea cuando
+$U$ y $W$ son subespacios de un mismo espacio $V$, mientras que $(u, w)$ se utiliza
+cuando $U$ y $W$ son espacios abstractos sin un ambiente común.} de representaciones irreducibles:
+\begin{equation}
+    R
+    =
+    R_1 \oplus R_2 \oplus \cdots \oplus R_n.
+\end{equation}
+\noindent
+En una base adecuada, las matrices de la representación adoptan forma diagonal
+por bloques\footnote{Cada bloque actúa sobre un subespacio invariante distinto.}:
+\begin{equation}
+    D_R(g)
+    =
+    \begin{pmatrix}
+        D_{R_1}(g) & 0 & \cdots & 0 \\
+        0 & D_{R_2}(g) & \cdots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & D_{R_n}(g)
+    \end{pmatrix}.
+\end{equation}
+\newpage
+\noindent
+\textbf{Ejemplo 1} 
+\medskip\newline\noindent
+Sea el grupo $G = \mathbb{Z}_2 = \{e, r\}$, con $r^2 = e$. Definimos la representación
+$\rho : \mathbb{Z}_2 \to GL(\mathbb{R}^2)$ mediante:
+\begin{equation}
+    \rho(e) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \qquad
+    \rho(r) = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
+\end{equation}
+\noindent
+El espacio $V = \mathbb{R}^2$ se descompone como $V = U \oplus W$, donde
+\begin{align*}
+    U &= \{(x, 0) : x \in \mathbb{R}\}, \\
+    W &= \{(0, y) : y \in \mathbb{R}\}.
+\end{align*}
+\noindent
+Ambos subespacios son invariantes bajo la acción del grupo:
+\begin{equation}
+    \rho(r)\begin{pmatrix} x \\ 0 \end{pmatrix} = \begin{pmatrix} x \\ 0 \end{pmatrix} \in U,
+    \qquad
+    \rho(r)\begin{pmatrix} 0 \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ -y \end{pmatrix} \in W.
+\end{equation}
+\noindent
+La restricción de $\rho$ a cada subespacio define dos representaciones irreducibles:
+\begin{align*}
+    \rho_1 &: \rho_1(e) = (1),\quad \rho_1(r) = (1)
+    \qquad \text{(representación trivial)}, \\
+    \rho_2 &: \rho_2(e) = (1),\quad \rho_2(r) = (-1)
+    \qquad \text{(representación alternante)}.
+\end{align*}
+\noindent
+Ambas son irreducibles por actuar sobre espacios de dimensión 1. La descomposición
+$\rho = \rho_1 \oplus \rho_2$ se hace explícita en la estructura diagonal por bloques:
+\begin{equation}
+    \rho(r) = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+    = \rho_1(r) \oplus \rho_2(r).
+\end{equation}
+\begin{flushright}
+    \(\square\)
+\end{flushright}
+\noindent
+\textbf{Ejemplo 2} 
+\medskip\newline\noindent
+Consideramos ahora la representación
+$\rho : \mathbb{Z}_2 \to GL(\mathbb{R}^2)$ dada por:
+\begin{equation}
+    \rho(e) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \qquad
+    \rho(r) = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},
+\end{equation}
+\noindent
+que corresponde a la matriz de permutación que intercambia las dos componentes.
+Para encontrar los subespacios invariantes calculamos los autovalores de $\rho(r)$:
+\begin{equation}
+    \det(\rho(r) - \lambda I) = \lambda^2 - 1 = 0 \implies \lambda = \pm 1,
+\end{equation}
+\noindent
+con autovectores asociados $v_1 = (1,1)$ para $\lambda = 1$ y $v_2 = (1,-1)$
+para $\lambda = -1$. Los subespacios invariantes son entonces
+\begin{align*}
+    U &= \operatorname{span}\{(1,1)\}, \\
+    W &= \operatorname{span}\{(1,-1)\},
+\end{align*}
+como se comprueba explícitamente:
+\begin{equation}
+    \rho(r)\begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}1\\1\end{pmatrix} \in U,
+    \qquad
+    \rho(r)\begin{pmatrix}1\\-1\end{pmatrix} = -\begin{pmatrix}1\\-1\end{pmatrix} \in W.
+\end{equation}
+\noindent
+Tomando $\{v_1, v_2\}$ como nueva base, la matriz de cambio de base y su inversa son
+\begin{equation}
+    P = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}, \qquad
+    P^{-1} = \frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}.
+\end{equation}
+\noindent
+La representación en la nueva base resulta
+\begin{equation}
+    \tilde{\rho}(r) = P^{-1}\rho(r)P =
+    \frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
+    \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+    \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
+    = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},
+\end{equation}
+\noindent
+que es diagonal por bloques. La descomposición en irreducibles es por tanto
+\begin{equation}
+    \tilde{\rho}(r) = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+    = \rho_1(r) \oplus \rho_2(r),
+\end{equation}
+\noindent
+donde $\rho_1$ es la representación trivial ($r \mapsto 1$) y $\rho_2$ es la
+representación alternante ($r \mapsto -1$). La física no cambia al hacer este
+procedimiento: únicamente hemos elegido la base en la que la estructura de suma
+directa se hace manifiesta.
+\section{Generadores de un grupo de Lie}
+\noindent
+En un grupo de Lie, cerca de la identidad, cualquier elemento puede escribirse en
+términos de sus generadores. Si \(D_R\) es una representación del grupo, entonces, para una transformación
+infinitesimal:
+\begin{equation}
+    D_R(\delta\theta)
+    =
+    \mathds{1}
+    -
+    i\delta\theta_a T^a_R
+    +
+    \mathcal{O}(\delta\theta^2).
+\end{equation}
+\noindent
+donde los generadores \(T^a_R\) de la representación \(R\) se definen\footnote{El factor $i$ en la
+definición se escoge de manera que, si en la representación $R$ los
+generadores son hermíticos $\left(T^a_R\right)^\dagger = T^a_R.$, entonces las matrices $D_R(g)$ sean unitarias.
+En este caso $R$ es una \textit{representación unitaria}.} como:
+\begin{equation}
+    T^a_R
+    =
+    i
+    \frac{\partial D_R(\theta)}
+    {\partial \theta_a}
+    \bigg|_{\theta=0}.
+\end{equation}
+\noindent
+En otras palabras, los generadores describen el comportamiento del grupo cerca
+de la identidad. Para una transformación finita, la representación puede
+escribirse como:
+\begin{equation}
+    D_R(\theta)
+    =
+    \exp
+    \left(
+        -i\theta_a T^a_R
+    \right).
+\end{equation}
+\subsubsection{Propiedad 1}
+\noindent
+Toda representación $D_R$ unitaria es completamente reducible.
+\subsubsection{Propiedad 2}
+\noindent
+Dadas dos matrices $
+D_R(g_1)=\exp(-i\alpha_a T_R^a)$ y
+$D_R(g_2)=\exp(-i\beta_a T_R^a),$ su producto es igual a $D_R(g_1g_2)$ y, por lo tanto, debe ser de la forma
+$\exp(-i\delta_a T_R^a)$, para algún $\delta_a(\alpha,\beta)$,
+\begin{equation}
+e^{-i\alpha_a T_R^a} e^{-i\beta_a T_R^a}
+=
+e^{-i\delta_a T_R^a}.
+\tag{2.6}
+\end{equation}
+\noindent
+Si $A,B$ son matrices, en general
+$e^A e^B \neq e^{A+B}$, por lo que en general
+$\delta_a \neq \alpha_a+\beta_a$. Tomando el logaritmo y expandiendo hasta
+segundo orden en $\alpha$ y $\beta$, obtenemos
+\begin{equation}
+\begin{aligned}
+i\delta_a T_R^a
+&=
+\log\left\{
+\left[
+1+i\alpha_a T_R^a
++\frac{1}{2}(i\alpha_a T_R^a)^2
+\right]
+\left[
+1+i\beta_a T_R^a
++\frac{1}{2}(i\beta_a T_R^a)^2
+\right]
+\right\}
+\\
+&=
+\log\left[
+1+i(\alpha_a+\beta_a)T_R^a
+-\frac{1}{2}(\alpha_a T_R^a)^2
+-\frac{1}{2}(\beta_a T_R^a)^2
+-\alpha_a\beta_b T_R^a T_R^b
+\right].
+\end{aligned}
+\tag{2.7}
+\end{equation}
+\noindent
+Expandiendo el logaritmo, $\log(1+x)\simeq x-x^2/2$, y teniendo en cuenta
+que los $T_R^a$ no conmutan, obtenemos:
+\begin{equation}
+\alpha_a \beta_b [T_R^a,T_R^b]
+=
+i\gamma_c(\alpha,\beta)T_R^c,
+\tag{2.8}
+\end{equation}
+con:
+\[
+\gamma_c(\alpha,\beta)
+=
+-2\bigl(\delta_c(\alpha,\beta)-\alpha_c-\beta_c\bigr).
+\]
+Como esto debe cumplirse para todo $\alpha$ y $\beta$, $\gamma_c$ debe ser
+lineal en $\alpha_a$ y en $\beta_a$, de modo que la relación entre $\gamma$
+y $\alpha,\beta$ debe tener la forma general:
+\[
+\gamma_c=\alpha_a\beta_b f^{ab}{}_{c}
+\]
+para algunas constantes $f^{ab}{}_{c}$. 
+\section{Álgebra de Lie del grupo}
+\noindent
+Cuando cambiamos la representación, en general la forma explícita e incluso las dimensiones de las matrices $D_R(g)$ cambiarán. Sin embargo, existe una propiedad importante de un grupo de Lie que es independiente de la
+representación. Esta es su álgebra de Lie, que introducimos ahora.
+\medskip\newline
+Como hemos visto, los generadores de un grupo de Lie satisfacen relaciones de conmutación que
+definen lo que llamamos álgebra de Lie del grupo. En general:
+\begin{equation}
+    \left[
+        T^a_R,
+        T^b_R
+    \right]
+    =
+    i f^{abc} T^c_R.
+\end{equation}
+\noindent
+Las constantes \(f^{abc}\) se llaman constantes de estructura del grupo. Son
+independientes de la representación elegida y codifican la estructura local del
+grupo cerca de la identidad.
+\medskip\newline
+Si todas las constantes de estructura son cero, $f^{abc}=0$, entonces todos los generadores conmutan, y el grupo es abeliano.
+\medskip\newline
+Así, las constantes de estructura definen el álgebra de Lie, y el problema
+de encontrar todas las representaciones matriciales de un álgebra de Lie se
+reduce al problema algebraico de encontrar todas las posibles soluciones
+matriciales $T_R^a$ de la ec (2.29).
+\subsection{Operadores de Casimir}
+\noindent
+En el estudio de las representaciones, los operadores de Casimir desempeñan
+un papel muy importante. Estos son operadores construidos a partir de los $T^a$, por lo
+que conmutan con todos los generadores del grupo. Es decir, un operador
+\(C\) es de Casimir si
+\begin{equation}
+    \left[
+        C,
+        T^a
+    \right]
+    =
+    0,
+    \qquad
+    \forall a.
+\end{equation}
+\noindent
+Por el lema de Schur, en una representación irreducible todo operador que
+conmuta con todos los generadores debe ser proporcional a la identidad:
+
+\begin{equation}
+    C = \lambda \mathds{1}.
+\end{equation}
+\noindent
+De esta forma, podemos usar la constante \(\lambda\) para etiquetar representaciones irreducibles.
+\medskip\newline
+\textbf{Ejemplo 3} 
+\medskip\newline\noindent
+En \(SU(2)\), los generadores satisfacen
+\begin{equation}
+    \left[
+        J_i,
+        J_j
+    \right]
+    =
+    i\epsilon_{ijk}J_k.
+\end{equation}
+El operador
+\begin{equation}
+    \vec{J}^{\,2}
+    =
+    J_1^2 + J_2^2 + J_3^2
+\end{equation}
+conmuta con todos los generadores:
+\begin{equation}
+    \left[
+        \vec{J}^{\,2},
+        J_i
+    \right]
+    =
+    0.
+\end{equation}
+Por tanto, \(\vec{J}^{\,2}\) es un operador de Casimir. En una representación
+irreducible de \(SU(2)\), se cumple
+\begin{equation}
+    \vec{J}^{\,2}
+    =
+    j(j+1)\mathds{1},
+\end{equation}
+donde \(j\) etiqueta la representación.
+\subsection{Grupos compactos}
+\noindent
+Un grupo de Lie se dice que es compacto si su variedad paramétrica es compacta. De
+forma intuitiva, esto significa que sus parámetros viven en un espacio cerrado
+y acotado.
+\medskip\newline
+Por ejemplo, el grupo de rotaciones es compacto, ya que sus parámetros
+angulares están acotados y las rotaciones vuelven periódicamente sobre sí
+mismas. En cambio, el grupo de traslaciones espaciales no es compacto, porque
+sus parámetros pueden tomar valores arbitrariamente grandes:
+\medskip\newline
+Si el grupo es compacto, entonces sus representaciones irreducibles de dimensión
+finita son unitarias. Además, los parámetros que etiquetan las representaciones
+suelen tomar valores discretos. En cambio, para grupos no compactos, pueden aparecer representaciones
+unitarias de dimensión infinita y parámetros continuos. Por ello, las
+representaciones de dimensión finita de grupos no compactos no son, en general,
+unitarias.
+\medskip\newline
+La relevancia física se encuentra en el hecho de que en una
+representación unitaria los generadores son operadores hermíticos y, de
+acuerdo con las reglas de la mecánica cuántica, solo los operadores hermíticos
+pueden identificarse con observables. Si un grupo es no compacto, para
+identificar sus generadores con observables físicos necesitamos una
+representación de dimensión infinita. Veremos en este capítulo que los grupos
+de Lorentz y de Poincaré son no compactos, y que las representaciones de
+dimensión infinita se obtienen introduciendo el espacio de Hilbert de estados
+de una partícula.
+\newpage
+\section{Grupo de Lorentz}
+\noindent
+
+%------------------------------------------------------------------------------------------------------------------------------------------
+\clearpage
+\input{Appendix}
+\end{document}
+
