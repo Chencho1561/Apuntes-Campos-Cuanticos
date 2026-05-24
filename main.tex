@@ -31,6 +31,9 @@
 \usepackage{bbm}    % Para \mathbbm
 \usepackage{natbib} %Bibliografia estilo APS
 \usepackage{braket} % Para escribir bra-ket de forma sencilla
+\usepackage{tikz} % Para dibujar diagramas de Feynman
+\usetikzlibrary{babel}
+\usetikzlibrary{calc, arrows.meta}
 
 %------------------------------------------------------------------------------------------------------------------------------------------
                      %WEB CON TODAS LAS BIBLIOTECAS Y TODA SU DOCUMENTACIÓN "https://ctan.org/"%
@@ -153,7 +156,6 @@ Una relación muy útil es:
 \begin{equation}
     \hbar c = 197.3269631(49) \ \text{MeV fm} \implies 
     25 \ \text{GeV}^{-2} \simeq 10^{-30} \ \text{m}^2 = 10 \ \text{mbarn}
-    \tag{1.1}
 \end{equation}
 donde $1 \ \text{fm} = 10^{-15} \ \text{m}$ 
 \subsection{Unidades Heaviside-Lorentz}
@@ -1463,7 +1465,6 @@ $\exp(-i\delta_a T_R^a)$, para algún $\delta_a(\alpha,\beta)$,
 e^{-i\alpha_a T_R^a} e^{-i\beta_a T_R^a}
 =
 e^{-i\delta_a T_R^a}.
-\tag{2.6}
 \end{equation}
 \noindent
 Si $A,B$ son matrices, en general
@@ -1493,7 +1494,6 @@ i\delta_a T_R^a
 -\alpha_a\beta_b T_R^a T_R^b
 \right].
 \end{aligned}
-\tag{2.7}
 \end{equation}
 \noindent
 Expandiendo el logaritmo, $\log(1+x)\simeq x-x^2/2$, y teniendo en cuenta
@@ -1502,7 +1502,6 @@ que los $T_R^a$ no conmutan, obtenemos:
 \alpha_a \beta_b [T_R^a,T_R^b]
 =
 i\gamma_c(\alpha,\beta)T_R^c,
-\tag{2.8}
 \end{equation}
 con:
 \[
@@ -1633,9 +1632,173 @@ de una partícula.
 \newpage
 \section{Grupo de Lorentz}
 \noindent
+El grupo de Lorentz se define como el grupo de transformaciones lineales de coordenadas, $x^\mu \to x'^\mu = \Lambda^\mu{}_\nu \, x^\nu$, que deja invariante la siguiente forma cuadrática:
+\begin{equation}
+    g_{\mu\nu} x^\mu x^\nu = t^2 - x^2 - y^2 - z^2\,.
+\end{equation}
+\noindent
+por lo que es isomorfo al grupo O(1,3), es decir, el grupo de transformaciones ortogonales que mantienen la métrica de Minkowski.
+\medskip\newline
+La condición que debe satisfacer la matriz $\Lambda$ para pertenecer a este grupo es:
+\begin{equation}
+    g_{\mu\nu} x'^\mu x'^\nu = g_{\mu\nu}(\Lambda^\mu{}_\rho x^\rho)(\Lambda^\nu{}_\sigma x^\sigma) = g_{\rho\sigma} x^\rho x^\sigma\,.
+\end{equation}
+Dado que esto debe ser cierto para cualquier $x$, se deduce:
+\begin{equation}
+    g_{\rho\sigma} = g_{\mu\nu}\Lambda^\mu{}_\rho \Lambda^\nu{}_\sigma\,.
+\end{equation}
+\noindent
+En notación matricial, esto se puede reescribir como $g = \Lambda^T g \Lambda$, por lo que calculando el determinante a ambos lados se obtiene $(\det\Lambda)^2 = 1$ o $\det\Lambda = \pm 1$.
+\medskip\newline
+Las transformaciones con $\det\Lambda = -1$, que denominamos \textit{impropias}, siempre se pueden escribir como el producto de una transformación con $\det\Lambda = +1$ y una transformación discreta que invierte el signo de un número impar de coordenadas. Trabajaremos, por lo tanto, exclusivamente con las transformaciones con $\det\Lambda = +1$, que se conocen por \textit{transformaciones propias}, y definen un subgrupo de $O(3,1)$ denotado por $SO(3,1)$.
+\medskip\newline
+Escribiendo explícitamente la componente $00$ encontramos:
+\begin{equation}
+    1 = (\Lambda^0{}_0)^2 - \sum_{i=1}^{3}(\Lambda^i{}_0)^2
+\end{equation}
+lo que implica que $(\Lambda^0{}_0)^2 \geq 1$. Por lo tanto, el grupo de Lorentz propio tiene dos componentes desconectadas, una con $\Lambda^0{}_0 \geq 1$ y otra con $\Lambda^0{}_0 \leq -1$, llamadas \textit{ortocrona} y \textit{no ortocrona}, respectivamente. Cualquier transformación no ortocrona puede escribirse como el producto de una transformación ortocrona y una inversión discreta.
+\medskip\newline
+El grupo de estas transformaciones se puede clasificar en cuatro clases:
+\begin{enumerate}
+    \item \textit{Ortocronas} $(\Lambda^{0}_{\ 0} \geq 1)$ \textit{propias} $(\det \Lambda = +1)$:
+    Forman un grupo que se pueden conectar con la identidad mediante
+    sucesivas transformaciones infinitesimales. Sus elementos son
+    \textit{rotaciones} en las tres dimensiones espaciales y \textit{boosts}. Estas
+    últimas relacionan los sistemas de coordenadas de dos observadores
+    inerciales (que se mueven con velocidad relativa constante).
+\end{enumerate}
+\noindent    
+Las demás obviamente no forman grupo, y se pueden escribir como producto de inversiones y transformaciones ortocronas propias.
+\begin{enumerate}
+    \item \textit{No ortocronas} $(\Lambda^{0}_{\ 0} \leq -1)$
+    \textit{propias} $(\det \Lambda = +1)$:
+    Transformaciones tipo: \[\Lambda_P \times\left\{\operatorname{diag}(-,-,-,-),\operatorname{diag}(-,-,+,+),\operatorname{diag}(-,+,-,+),\operatorname{diag}(-,+,+,-)\right\}.\]
+    \noindent
+    Incluye a las inversiones totales, $\operatorname{diag}(-,-,-,-).$
+    \item \textit{Ortocronas} $(\Lambda^{0}_{\ 0} \geq 1)$
+    \textit{impropias} $(\det \Lambda = -1)$:
+    Transformaciones tipo:
+    \[
+        \Lambda_P \times
+        \left\{
+        \operatorname{diag}(+,+,+,-),
+        \operatorname{diag}(+,+,-,+),
+        \operatorname{diag}(+,-,+,+),
+        \operatorname{diag}(+,-,-,-)
+        \right\}.
+    \]
+    \noindent
+    Incluyen a las inversiones espaciales, $\operatorname{diag}(+,-,-,-).$
+    \item \textit{No ortocronas} $(\Lambda^{0}_{\ 0} \leq -1)$
+    \textit{impropias} $(\det \Lambda = -1)$:
+    Transformaciones tipo:
+    \[
+        \Lambda_P \times
+        \left\{
+        \operatorname{diag}(-,-,-,+),
+        \operatorname{diag}(-,-,+,-),
+        \operatorname{diag}(-,+,-,-),
+        \operatorname{diag}(-,+,+,+)
+        \right\}.
+    \]
+    \noindent
+    Incluyen a las inversiones temporales: $operatorname{diag}(-,+,+,+).$
+\end{enumerate}
+\noindent
+Es conveniente factorizar todas estas transformaciones discretas y redefinir el grupo de Lorentz como la componente de $SO(3,1)$ para la que $\Lambda^0{}_0 \geq 1$.
+% Requiere en el preámbulo:
+% \usetikzlibrary{arrows.meta}
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.1, >=stealth]
+
+% =========================
+% Rotación
+% =========================
+\coordinate (O) at (-1.5, 1.2);
+
+% Sistema primado (no rotado)
+\draw[->] (O) -- ++(0:1.7)   node[right] {$x'$};
+\draw[->] (O) -- ++(90:1.7)  node[above] {$y'$};
+
+% Sistema rotado un ángulo theta
+\draw[->] (O) -- ++(20:1.7)  node[right] {$x$};
+\draw[->] (O) -- ++(110:1.7) node[above] {$y$};
+
+% Arco theta centrado en O
+\draw[->] (O) ++(0:0.6) arc[start angle=0, end angle=20, radius=0.6];
+\node at ($(O) + (12:0.85)$) {$\theta$};
+
+% Matriz de rotación
+\node at (3.2, 1.2) {
+    $\displaystyle
+    \begin{pmatrix} x' \\ y' \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \cos\theta  & \sin\theta \\
+       -\sin\theta  & \cos\theta
+    \end{pmatrix}
+    \begin{pmatrix} x \\ y \end{pmatrix}
+    $
+};
+
+% =========================
+% Boost de Lorentz
+% =========================
+\coordinate (B) at (-1.5, -1.5);
+
+% Ejes del sistema primado y no primado (mismo origen)
+\draw[->] (B) -- ++(1.7, 0)  node[right] {$x$};
+\draw[->] (B) -- ++(0, 1.7)  node[above] {$t$};
+
+% Ejes del sistema S' (inclinados por rapidez eta)
+\draw[->, dashed] (B) -- ++(20:1.7)  node[right] {$x'$};
+\draw[->, dashed] (B) -- ++(70:1.7)  node[above] {$t'$};
+
+% Flecha indicando beta
+\draw[->] (-0.6, -0.4) -- ++(0.8, 0);
+\node at (-0.2, -0.2) {$\beta$};
+
+% Matriz del boost
+\node at (3.2, -1.2) {
+    $\displaystyle
+    \begin{pmatrix} t' \\ x' \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \gamma         & -\gamma\beta \\
+       -\gamma\beta    &  \gamma
+    \end{pmatrix}
+    \begin{pmatrix} t \\ x \end{pmatrix}
+    $
+};
+
+\node at (3.2, -2.0) {
+    $\displaystyle
+    \gamma = \cosh\eta, \qquad \gamma\beta = \sinh\eta
+    $
+};
+\end{tikzpicture}
+\caption{Rotación espacial y \textit{boost} de Lorentz.}
+\end{figure}
+\noindent
+De esta forma, si consideramos una transformación infinitesimal:
+\begin{equation}
+    \Lambda^\mu{}_\nu = \delta^\mu_\nu + \omega^\mu{}_\nu
+\end{equation}
+la condición de grupo implica:
+\begin{equation}
+    \omega_{\mu\nu} = -\omega_{\nu\mu}\,.
+\end{equation}
+La matriz de la transformación es, por lo tanto, antisimétrica, y si su dimensión es $4\times4$, tiene seis elementos independientes. Estos se identifican fácilmente, en primer lugar tenemos las transformaciones que dejan $t$ invariante. Este es simplemente el grupo de rotación $SO(3)$, generado por las tres rotaciones en los planos $(x,y)$, $(x,z)$ e $(y,z)$. Además, tenemos tres transformaciones en los planos $(t,x)$, $(t,y)$ y $(t,z)$, que dejan invariantes $t^2-x^2$, etc. Una transformación que deja invariante $t^2 - x^2$ se llama \textit{impulso} (boost) a lo largo del eje $x$, y puede escribirse como
+\begin{equation}
+    t \to \gamma(t + vx)\,,\quad x \to \gamma(x + vt)\,,
+\end{equation}
+con $\gamma = (1-v^2)^{-1/2}$ y $-1 < v < 1$. Su significado físico se entiende mirando el límite de $v$ pequeño, donde se reduce a la transformación de velocidades de la mecánica clásica. Es, por tanto, la generalización relativista de una transformación de velocidades. Los seis parámetros independientes del grupo de Lorentz pueden tomarse entonces como los tres ángulos de rotación y las tres componentes de la velocidad $v$.
+ 
+\subsection{El álgebra de Lorentz}
 %------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
-\input{Appendix}
+\input{Apendice/Appendix.tex}
 \end{document}
 
