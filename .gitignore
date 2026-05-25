@@ -16,3 +16,4 @@
 *.fdb_latexmk
 *.DS_Store
 *.vscode
+out/main.synctex.gz
