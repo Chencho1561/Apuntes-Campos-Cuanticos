@@ -1795,8 +1795,226 @@ La matriz de la transformación es, por lo tanto, antisimétrica, y si su dimens
     t \to \gamma(t + vx)\,,\quad x \to \gamma(x + vt)\,,
 \end{equation}
 con $\gamma = (1-v^2)^{-1/2}$ y $-1 < v < 1$. Su significado físico se entiende mirando el límite de $v$ pequeño, donde se reduce a la transformación de velocidades de la mecánica clásica. Es, por tanto, la generalización relativista de una transformación de velocidades. Los seis parámetros independientes del grupo de Lorentz pueden tomarse entonces como los tres ángulos de rotación y las tres componentes de la velocidad $v$.
- 
-\subsection{El álgebra de Lorentz}
+ \newpage\noindent
+\section{Representaciones del grupo de Lorentz}
+\noindent
+Hemos visto que el grupo de Lorentz tiene seis parámetros, los seis elementos independientes de la matriz antisimétrica $\omega_{\mu\nu}$, a los que corresponden seis generadores. Es conveniente etiquetar los generadores como $J^{\mu\nu}$, con un par de índices antisimétricos $(\mu,\nu)$, de modo que $J^{\mu\nu} = -J^{\nu\mu}$. Un elemento genérico $\Lambda$ del grupo de Lorentz se escribe por lo tanto como
+\begin{equation}
+    \Lambda = e^{-\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}}\,.
+\end{equation}
+El factor $1/2$ en el exponente compensa el hecho de que estamos sumando sobre todos $\mu,\nu$ en lugar de sobre los pares independientes con $\mu < \nu$, y por lo tanto cada generador se cuenta dos veces.
+ \medskip\newline
+Por definición, un conjunto de objetos $\phi^i$, con $i = 1,\ldots,n$, se transforma en una representación $R$ de dimensión $n$ del grupo de Lorentz como:
+\begin{equation}
+    \phi^i \to \left[e^{-\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}_R}\right]^i{}_j \phi^j\,,
+\end{equation}
+donde $\exp\{-(i/2)\omega_{\mu\nu}J^{\mu\nu}_R\}$ es una representación matricial de dimensión $n$ del elemento abstracto del grupo de Lorentz y $J^{\mu\nu}_R$ son los generadores de Lorentz en la representación $R$, que son matrices $n\times n$. 
+\medskip\newline
+Bajo una transformación infinitesimal con parámetros infinitesimales $\omega_{\mu\nu}$, la variación de $\phi^i$ es
+\begin{equation}
+    \delta\phi^i = -\frac{i}{2}\,\omega_{\mu\nu}(J^{\mu\nu}_R)^i{}_j\,\phi^j\,.
+\end{equation}
+En $(J^{\mu\nu}_R)^i{}_j$ el par de índices $\mu,\nu$ identifica el generador, mientras que los índices $i,j$ son los índices matriciales de la representación que estamos considerando.
+\subsection{Representaciones escalar y vectorial}
+\noindent
+Todas las cantidades físicas pueden clasificarse según sus propiedades de transformación bajo el grupo de Lorentz. Así, un \textit{escalar}, es una cantidad que resulta invariante bajo el grupo\footnote{Un escalar de Lorentz típico en física de partículas es la masa en reposo de una partícula.}. Un \textit{cuadrivector contravariante}\footnote{Un cuadrivector covariante $V_\mu$ se transforma como $V_\mu \to \Lambda_\mu{}^\nu V_\nu$, con $\Lambda_\mu{}^\nu = \eta_{\mu\rho}\eta_{\nu\sigma}\Lambda^\rho{}_\sigma$.} $V^\mu$ se puede definir como un objeto que satisface la siguiente ley de transformación:
+\begin{equation}
+    V^\mu \to \Lambda^\mu{}_\nu V^\nu\,,
+\end{equation}
+con $\Lambda^\mu{}_\nu$ definido por la condición (2.13). Las coordenadas espacio-temporales $x^\mu$ son el ejemplo más sencillo de cuadrivector, aunque otro ejemplo particularmente importante ,es el cuadrimomento $p^\mu = (E, \mathbf{p})$.
+ \medskip\newline
+La forma explícita de los generadores $(J^{\mu\nu}_R)^i{}_j$ depende de la representación particular que estemos considerando. 
+\medskip\newline
+Para un escalar $\phi$, el índice $i$ toma un único valor, por lo que es una representación unidimensional, y $(J^{\mu\nu})^i{}_j$ es una matriz $1\times1$, es decir, un número, para cada par dado $(\mu,\nu)$. Como por definición sobre un escalar la transformación de Lorentz es la transformación identidad, $\delta\phi = 0$, y $J^{\mu\nu} = 0$. 
+\newpage\noindent
+La representación de cuadrivector es más interesante. En este caso cada generador $J^{\mu\nu}$ se representa mediante una matriz $4\times4$ $(J^{\mu\nu})^\rho{}_\sigma$, que de forma explícita satisface:
+\begin{equation}
+    (J^{\mu\nu})^\rho{}_\sigma = i\left(\eta^{\mu\rho}\delta^\nu_\sigma - \eta^{\nu\rho}\delta^\mu_\sigma\right)\,.
+\end{equation}
+Esto puede mostrarse observando que la variación de un cuadrivector $V^\mu$ bajo una transformación de Lorentz infinitesimal es $\delta V^\mu = \omega^\mu{}_\nu V^\nu$, que puede reescribirse como
+\begin{equation}
+    \delta V^\rho = -\frac{i}{2}\,\omega_{\mu\nu}(J^{\mu\nu})^\rho{}_\sigma\,V^\sigma\,,
+\end{equation}
+con $(J^{\mu\nu})^\rho{}_\sigma$ dado por la ec.\ (2.50). Esta representación es irreducible, ya que una transformación genérica mezcla las cuatro componentes del cuadrivector, y por lo tanto, no existe ningún cambio de base que nos permita escribir $(J^{\mu\nu})^\rho{}_\sigma$ en forma diagonal por bloques. 
+\medskip\newline
+Podemos usar la expresión explícita de esta representación para analizar las relaciones de conmutación.
+\begin{equation}
+    [J^{\mu\nu}, J^{\rho\sigma}] = i\left(\eta^{\nu\rho}J^{\mu\sigma} - \eta^{\mu\rho}J^{\nu\sigma} - \eta^{\nu\sigma}J^{\mu\rho} + \eta^{\mu\sigma}J^{\nu\rho}\right)\,.
+\end{equation}
+Esta es el álgebra de Lie de $SO(3,1)$. Es conveniente redefinir los seis generadores $J^{\mu\nu}$ en dos clases de vectores espaciales,
+\begin{equation}
+    J^i = \frac{1}{2}\epsilon^{ijk}J^{jk}\,,\qquad K^i = J^{i0}\,.
+\end{equation}
+En términos de $J^i$, $K^i$ el álgebra de Lie se convierte en:
+\begin{align}
+    \left[J^i, J^j\right] &= i\epsilon^{ijk}J^k\,,\\
+    \left[J^i, K^j\right] &= i\epsilon^{ijk}K^k\,, \\
+    \left[K^i, K^j\right] &= -i\epsilon^{ijk}J^k\,.
+\end{align}
+La ecuación (2.54) es el álgebra de Lie de $SU(2)$, lo que relaciona $J^i$ con el momento angular. En cambio, la ec.\ (2.56) expresa el hecho de que $\mathbf{K}$ es un vector espacial.
+ \medskip\newline
+Introduciendo las definiciones $\theta^i = (1/2)\epsilon^{ijk}\omega^{jk}$ y $\eta^i = \omega^{i0}$:
+\begin{equation}
+    \frac{1}{2}\omega_{\mu\nu}J^{\mu\nu} = \omega_{12}J^{12} + \omega_{13}J^{13} + \omega_{23}J^{23} + \sum_{i=1}^{3}\omega_{i0}J^{i0}
+    = \boldsymbol{\theta}\cdot\mathbf{J} - \boldsymbol{\eta}\cdot\mathbf{K}\,,
+\end{equation}
+donde usamos $\omega_{i0} = -\omega^{i0} = -\eta^i$ mientras que $\omega_{12} = \omega^{12} = \theta^3$, etc. Una transformación de Lorentz puede escribirse como:
+\begin{equation}
+    \Lambda = \exp\{-i\boldsymbol{\theta}\cdot\mathbf{J} + i\boldsymbol{\eta}\cdot\mathbf{K}\}\,.
+\end{equation}
+Con nuestras definiciones, una rotación de ángulo $\theta > 0$ en el plano $(x,y)$ rota en sentido antihorario la posición de un punto $P$ respecto a un sistema de referencia fijo (este es el punto de vista ``activo''; alternativamente, podemos decir que mantenemos $P$ fijo y rotamos el sistema de referencia en sentido horario; este es el punto de vista ``pasivo''), mientras que al realizar un impulso de velocidad $v$ sobre una partícula en reposo, obtenemos una partícula con velocidad $+v$. 
+\subsubsection{Resumen Geométrico}
+\noindent
+Una transformación de Lorentz propia puede escribirse como producto de rotaciones y boosts. Las rotaciones se parametrizan mediante tres ángulos $\theta_x,\theta_y,\theta_z\in[0,2\pi)$, mientras que los boosts se parametrizan mediante las componentes de la velocidad \(\boldsymbol{\beta}=(\beta_x,\beta_y,\beta_z)\), con \(\beta_i\in(-1,1)\).
+\medskip\newline
+En particular, las rotaciones alrededor de los ejes \(x,y,z\) vienen representadas por:
+\begin{equation}
+\begin{gathered}
+R_x =
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & \cos\theta_x & -\sin\theta_x \\
+0 & 0 & \sin\theta_x & \cos\theta_x
+\end{pmatrix}
+\quad
+R_y =
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & \cos\theta_y & 0 & \sin\theta_y \\
+0 & 0 & 1 & 0 \\
+0 & -\sin\theta_y & 0 & \cos\theta_y
+\end{pmatrix}
+\\[1.4em]
+R_z =
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & \cos\theta_z & -\sin\theta_z & 0 \\
+0 & \sin\theta_z & \cos\theta_z & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\end{gathered}
+\end{equation}
+Los boosts en las direcciones \(x,y,z\) son
+\begin{equation}
+\begin{gathered}
+L_x =
+\begin{pmatrix}
+\gamma & \gamma\beta_x & 0 & 0 \\
+\gamma\beta_x & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix},
+\quad
+L_y =
+\begin{pmatrix}
+\gamma & 0 & \gamma\beta_y & 0 \\
+0 & 1 & 0 & 0 \\
+\gamma\beta_y & 0 & \gamma & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix},
+\\[1.4em]
+L_z =
+\begin{pmatrix}
+\gamma & 0 & 0 & \gamma\beta_z \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+\gamma\beta_z & 0 & 0 & \gamma
+\end{pmatrix}.
+\end{gathered}
+\end{equation}
+Usando la notación $c_\theta \equiv \cos\theta, s_\theta \equiv \sin\theta, \gamma = \frac{1}{\sqrt{1-\beta^2}},$ y cambiando el parámetro de velocidad \(\beta\) por la rapidez \(\eta\), definida como:
+\begin{equation}
+\eta = \frac{1}{2}\ln\left(\frac{1+\beta}{1-\beta}\right),
+\end{equation}
+donde \(\eta\in(-\infty,\infty)\), para hacer los boosts aditivos en sus parámetros, los generadores infinitesimales se escriben como:
+\begin{equation}
+J^1 =
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0
+\end{pmatrix}
+\quad
+J^2 =
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & i \\
+0 & 0 & 0 & 0 \\
+0 & -i & 0 & 0
+\end{pmatrix}
+\quad
+J^3 =
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & 0 & -i & 0 \\
+0 & i & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{pmatrix}.
+\end{equation}
+\begin{equation}
+K^1 =
+\begin{pmatrix}
+0 & i & 0 & 0 \\
+i & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{pmatrix}
+\quad
+K^2 =
+\begin{pmatrix}
+0 & 0 & i & 0 \\
+0 & 0 & 0 & 0 \\
+i & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{pmatrix}
+\quad
+K^3 =
+\begin{pmatrix}
+0 & 0 & 0 & i \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+i & 0 & 0 & 0
+\end{pmatrix}.
+\end{equation}
+\newpage\noindent
+Observamos que los \(K^i\) no son hermíticos en esta representación, ya que $(K^i)^\dagger = -K^i.$
+\medskip\newline
+Es útil introducir las combinaciones$A^m=\frac{1}{2}\left(J^m+iK^m\right)$ y $B^m=\frac{1}{2}\left(J^m-iK^m\right),$ que satisfacen las relaciones
+\begin{equation}
+[A^k,A^\ell]
+=
+i\epsilon^{k\ell m}A^m,
+\quad
+[B^k,B^\ell]
+=
+i\epsilon^{k\ell m}B^m,
+\quad
+[A^k,B^\ell]
+=
+0.
+\end{equation}
+\noindent
+Por tanto, el álgebra de Lorentz se descompone como suma directa de dos álgebras \(SU(2)\). Sin embargo, esto no implica que los grupos \(SO(1,3)\) y \(SU(2)\times SU(2)\) sean isomorfos. La razón es que \(SU(2)\times SU(2)\) es compacto, mientras que \(SO(1,3)\) no lo es.
+\medskip\newline
+Esta descomposición permite clasificar las representaciones irreducibles del grupo de Lorentz mediante dos etiquetas $(j_1,j_2),$ con dimensión $(2j_1+1)(2j_2+1).$ Estas representaciones son de dimensión finita, aunque no unitarias.
+\noindent
+La representación de grupo viene dada por
+\begin{equation}
+\Lambda
+=
+\exp\left\{
+-i
+\left(
+\boldsymbol{\theta}\cdot\mathbf{J}
++
+\boldsymbol{\eta}\cdot\mathbf{K}
+\right)
+\right\}.
+\end{equation}
+\subsection{Representación tensorial}
+\noindent
 %------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
 \input{Apendice/Appendix.tex}

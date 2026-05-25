@@ -37,3 +37,6 @@ Lagrangianos
 ec
 Schur
 ortocrona
+Ortocronas
+ortocronas
+cuadrivector
