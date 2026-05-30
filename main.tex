@@ -1798,7 +1798,7 @@ con $\gamma = (1-v^2)^{-1/2}$ y $-1 < v < 1$. Su significado físico se entiende
  \newpage\noindent
 \section{Representaciones del grupo de Lorentz}
 \noindent
-Hemos visto que el grupo de Lorentz tiene seis parámetros, los seis elementos independientes de la matriz antisimétrica $\omega_{\mu\nu}$, a los que corresponden seis generadores. Es conveniente etiquetar los generadores como $J^{\mu\nu}$, con un par de índices antisimétricos $(\mu,\nu)$, de modo que $J^{\mu\nu} = -J^{\nu\mu}$. Un elemento genérico $\Lambda$ del grupo de Lorentz se escribe por lo tanto como
+Hemos visto que el grupo de Lorentz tiene seis parámetros, los seis elementos independientes de la matriz antisimétrica $\omega_{\mu\nu}$, a los que corresponden seis generadores. Es conveniente etiquetar los generadores como $J^{\mu\nu}$, con un par de índices antisimétricos $(\mu,\nu)$, de modo que $J^{\mu\nu} = -J^{\nu\mu}$. Un elemento genérico $\Lambda$ del grupo de Lorentz se escribe, por lo tanto, como
 \begin{equation}
     \Lambda = e^{-\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}}\,.
 \end{equation}
@@ -1821,7 +1821,7 @@ Todas las cantidades físicas pueden clasificarse según sus propiedades de tran
 \begin{equation}
     V^\mu \to \Lambda^\mu{}_\nu V^\nu\,,
 \end{equation}
-con $\Lambda^\mu{}_\nu$ definido por la condición (2.13). Las coordenadas espacio-temporales $x^\mu$ son el ejemplo más sencillo de cuadrivector, aunque otro ejemplo particularmente importante ,es el cuadrimomento $p^\mu = (E, \mathbf{p})$.
+con $\Lambda^\mu{}_\nu$ definido por la condición (2.13). Las coordenadas espacio-temporales $x^\mu$ son el ejemplo más sencillo de cuadrivector, aunque otro ejemplo particularmente importante, es el cuadrimomento $p^\mu = (E, \mathbf{p})$.
  \medskip\newline
 La forma explícita de los generadores $(J^{\mu\nu}_R)^i{}_j$ depende de la representación particular que estemos considerando. 
 \medskip\newline
@@ -2015,6 +2015,341 @@ La representación de grupo viene dada por
 \end{equation}
 \subsection{Representación tensorial}
 \noindent
+Por definición, un tensor $T^{\mu\nu}$ con dos índices contravariantes es un objeto matemático que bajo el grupo de Lorentz se transforma como:
+\begin{equation}
+T^{\mu\nu}\rightarrow{\Lambda^{\mu}}_{\mu^{\prime}}{\Lambda^{\nu}}_{\nu^{\prime}}T^{\mu^{\prime}\nu^{\prime}}
+\end{equation}
+\noindent
+En general, un tensor con un número arbitrario de índices superiores e inferiores transforma con un factor ${\Lambda^{\mu}}_{\mu^{\prime}}$ por cada índice superior y un factor ${\Lambda_{\mu}}^{\mu^{\prime}}$ por cada índice inferior.
+\medskip\newline
+Los tensores, al igual que los vectores, definen representaciones del grupo de Lorentz. 
+\medskip\newline
+\textbf{Ejemplo 1} 
+\medskip\newline\noindent
+Un tensor genérico $T^{\mu\nu}$, donde cada índice toma 4 valores, tiene 16 componentes y se demuestra que estas 16 componentes se transforman entre sí, es decir, son una base para una representación de dimensión 16.
+\medskip\newline
+A partir de las propiedades de transformación vemos que, si $T^{\mu\nu}$ es antisimétrico, tras una transformación de Lorentz sigue siendo antisimétrico, mientras que si es simétrico, permanece simétrico. Así, las partes simétrica y antisimétrica de un tensor $T^{\mu\nu}$ no se mezclan, y la representación de 16 dimensiones es reducible en una representación antisimétrica de 6 dimensiones $A^{\mu\nu}=(1/2)(T^{\mu\nu}-T^{\nu\mu})$ y una representación simétrica de 10 dimensiones $S^{\mu\nu}=(1/2)(T^{\mu\nu}+T^{\nu\mu})$.
+\medskip\newline
+Además, la traza de un tensor simétrico también es invariante,
+\begin{equation}
+S = g_{\mu\nu}S^{\mu\nu}
+\end{equation}
+donde en el último paso se ha usado la propiedad que define al grupo de Lorentz. Esto significa, en particular, que un tensor de traza nula permanece con traza nula tras una transformación de Lorentz, y por lo tanto, la representación simétrica de 10 dimensiones se descompone aún más en una representación simétrica de traza nula irreducible de nueve dimensiones, $S^{\mu\nu}-(1/4)g^{\mu\nu}S$, y la representación escalar unidimensional $S$.
+
+\begin{flushright}
+    \(\square\)
+\end{flushright}
+\noindent
+Una representación irreducible se denotará por su dimensionalidad escrita en negrita. Por tanto, la representación escalar se denota como \textbf{1}, la representación cuadrivectorial como \textbf{4}, el tensor antisimétrico como \textbf{6} y el tensor simétrico de traza nula como \textbf{9}. 
+\medskip\newline
+La representación tensorial es un producto tensorial\footnote{Dados dos espacios vectoriales $V$ y $W$, su producto tensorial $V\otimes W$ es el espacio vectorial generado por los símbolos $v\otimes w$, con $v\in V$ y $w\in W$, sujetos a bilinealidad en ambos argumentos: $(av_1+bv_2)\otimes w=a(v_1\otimes w)+b(v_2\otimes w)$ y $v\otimes(aw_1+bw_2)=a(v\otimes w_1)+b(v\otimes w_2)$.} de dos representaciones cuadrivectoriales, lo que significa que cada uno de los dos índices de $T^{\mu\nu}$ transforma separadamente como un índice de cuadrivector. Hemos encontrado que el producto tensorial de dos representaciones cuadrivectoriales se descompone en la suma directa de las representaciones \textbf{1}, \textbf{6} y \textbf{9}. Denotando la suma directa por $\oplus$, tenemos:
+\begin{equation}
+\mathbf{4}\otimes\mathbf{4}=\mathbf{1}\oplus\mathbf{6}\oplus\mathbf{9}
+\end{equation}
+\medskip\newline
+La descomposición en representaciones irreducibles de tensores con más de dos índices se puede obtener de forma similar. Las representaciones tensoriales irreducibles más generales del grupo de Lorentz se encuentran partiendo de un tensor genérico con un número arbitrario de índices, eliminando primero todas las trazas y luego simetrizando o antisimetrizando sobre todos los pares de índices. 
+\medskip\newline
+Todas las representaciones tensoriales derivan en cierto sentido de la representación cuadrivectorial, ya que la ley de transformación de un tensor se obtiene aplicando separadamente sobre cada índice de Lorentz la matriz ${\Lambda^{\mu}}_{\nu}$ que define la transformación de los cuadrivectores. Esto significa que las representaciones tensoriales son productos tensoriales de la representación cuadrivectorial. Por esta razón, la representación cuadrivectorial juega un papel distinguido y se denomina representación fundamental de $SO(3,1)$.
+\subsection{Representación Adjunta}
+\noindent
+Otra representación de especial importancia es la representación adjunta. Es una representación que tiene la misma dimensión que el número de generadores. Esto significa que podemos usar el mismo tipo de índices $a, b, c$ para etiquetar el generador y sus elementos de matriz, y para cualquier grupo de Lie se puede escribir con total generalidad en términos de las constantes de estructura, como:
+\begin{equation}
+(T_{adj}^{a})_{bc}=-if^{abc}
+\end{equation}
+\noindent
+donde $a$ indica qué generador de la representación adjunta estás tomando y $b,c$ son los índices matriciales de ese generador.
+\medskip\newline
+El álgebra de Lie se satisface automáticamente con esta representación. Esto se deduce del hecho de que, para todas las matrices $A, B, C$, hay una identidad algebraica conocida como la identidad de Jacobi:
+\begin{equation}
+[A,[B,C]]+[B,[C,A]]+[C,[A,B]]=0
+\end{equation}
+la cual se verifica fácilmente escribiendo los conmutadores de forma explícita. Sustituyendo en esta identidad $A=T^{a}$, $B=T^{b}$ y $C=T^{c}$ encontramos que las constantes de estructura de cualquier grupo de Lie obedecen la identidad:
+\begin{equation}
+f^{abd}f^{cde}+f^{bcd}f^{ade}+f^{cad}f^{bde}=0
+\end{equation}
+\noindent
+Para el grupo de Lorentz, la representación adjunta tiene dimensión seis, por lo que viene dada por el tensor antisimétrico $A^{\mu\nu}$. Toda la teoría de representaciones sobre tensores que hemos desarrollado pensando en $SO(3,1)$ funciona para $SO(n)$ o $SO(n,m)$ genéricos, simplemente reemplazando $g_{\mu\nu}$ con $\delta_{\mu\nu}$ para $SO(n)$ o con una matriz diagonal con $n$ signos menos y $m$ signos más para $SO(n,m)$.
+
+\subsubsection{Descomposición de tensores de Lorentz bajo $SO(3)$}
+\noindent
+Como sabemos cómo se comporta un tensor bajo una transformación genérica de Lorentz, es interesante estudiar sus propiedades bajo el subgrupo de rotaciones $SO(3)$.
+\medskip\newline
+Las representaciones de $SO(3)$ están etiquetadas por un índice $j$ que toma valores enteros $j=0,1,2,\dots$, cuya dimensión queda etiquetada por $2j+1$. Dentro de cada representación, estos $2j+1$ estados están etiquetados por $j_{z}=-j,\dots,j$. Para $SO(3)$, es más común denotar la representación como \textbf{j}, es decir, etiquetarla con el momento angular en lugar de con la dimensión de la representación.
+\medskip\newline
+Un escalar de Lorentz es por supuesto también un escalar bajo rotaciones, así que tiene $j=0$. Un cuadrivector $V^{\mu}=(V^{0},\mathbf{V})$ es una representación irreducible del grupo de Lorentz, pero desde el punto de vista del subgrupo $SO(3)$ es reducible: las rotaciones espaciales no mezclan $V^{0}$ con $\mathbf{V}$; $V^{0}$ es invariante bajo rotaciones espaciales, así que tiene $j=0$, mientras que las tres componentes espaciales forman una representación tridimensional irreducible de $SO(3)$, por lo que tienen $j=1$. En lenguaje de teoría de grupos decimos que, desde el punto de vista de las rotaciones espaciales, un cuadrivector se descompone en la suma directa de un escalar y una representación $j=1$:
+\begin{equation}
+V^{\mu}\in\mathbf{0}\oplus\mathbf{1}
+\end{equation}
+o si preferimos etiquetarlo por la dimensión, $\mathbf{4}=\mathbf{1}\oplus\mathbf{3}$.
+\medskip\newline
+Ahora queremos entender qué momentos angulares aparecen en un tensor genérico $T^{\mu\nu}$ con dos índices. Por definición, un tensor $T^{\mu\nu}$ transforma como el producto tensorial de dos representaciones cuadrivectoriales. Puesto que, desde el punto de vista de $SO(3)$, un cuadrivector es $\mathbf{0}\oplus\mathbf{1}$, un tensor genérico con dos índices tiene la siguiente descomposición en momentos angulares:
+\begin{equation}
+T^{\mu\nu}\in(\mathbf{0}\oplus\mathbf{1})\otimes(\mathbf{0}\oplus\mathbf{1})=(\mathbf{0}\otimes\mathbf{0})\oplus(\mathbf{0}\otimes\mathbf{1})\oplus(\mathbf{1}\otimes\mathbf{0})\oplus(\mathbf{1}\otimes\mathbf{1}) = \mathbf{0}\oplus\mathbf{1}\oplus\mathbf{1}\oplus(\mathbf{0}\oplus\mathbf{1}\oplus\mathbf{2}).
+\end{equation}
+\noindent
+En el último paso hemos usado la regla habitual de composición de momentos angulares, la cual dice que componiendo dos momentos angulares $j_{1}$ y $j_{2}$ obtenemos todos los momentos angulares entre $|j_{1}-j_{2}|$ y $j_{1}+j_{2}$. Así, en la descomposición de un tensor genérico $T^{\mu\nu}$, la representación $j=0$ aparece dos veces, la $j=1$ tres veces, y la $j=2$ una vez.
+\medskip\newline
+Es interesante ver cómo se reparten estas representaciones entre la parte simétrica sin traza, la traza y la parte antisimétrica del tensor $T^{\mu\nu}$. La traza es un escalar de Lorentz, así que es una representación $\mathbf{0}$. Un tensor antisimétrico $A^{\mu\nu}$ tiene seis componentes, que se pueden escribir como $A^{0i}$ y $(1/2)\epsilon^{ijk}A^{jk}$. Estos son dos vectores espaciales y, por tanto:
+\begin{equation}
+A^{\mu\nu}\in\mathbf{1}\oplus\mathbf{1}.
+\end{equation}
+Puesto que hemos identificado la traza con un $\mathbf{0}$ y $A^{\mu\nu}$ con $\mathbf{1}\oplus\mathbf{1}$, la comparación muestra que las nueve componentes de un tensor simétrico de traza nula $S^{\mu\nu}$ se descomponen bajo rotaciones espaciales como:
+\begin{equation}
+S^{\mu\nu}\in\mathbf{0}\oplus\mathbf{1}\oplus\mathbf{2}.
+\end{equation}
+\noindent
+En general, un tensor simétrico con $N$ índices contiene momentos angulares hasta $j=N$. En cuatro dimensiones, los tensores antisimétricos de orden superior son menos interesantes, ya que el índice toma solo cuatro valores $0,\dots,3$ y no podemos antisimetrizar sobre más de cuatro índices sin obtener cero.
+\medskip\newline
+\textbf{Ejemplo 2} 
+\medskip\newline\noindent
+Un tensor totalmente antisimétrico con cuatro índices, $A^{\mu\nu\rho\sigma}$, tiene solo una componente independiente $A^{0123}$, por lo que debe ser un escalar de Lorentz. 
+\medskip\newline
+Un tensor antisimétrico con tres índices, $A^{\mu\nu\rho}$, tiene 4 componentes y las mismas propiedades de transformación que un cuadrivector.
+\medskip\newline
+\textbf{Ejemplo 3} 
+\medskip\newline\noindent
+En un sistema de referencia dado, el tensor totalmente antisimétrico $\epsilon^{\mu\nu\rho\sigma}$ se define por $\epsilon^{0123}=+1$ y por la condición de antisimetría total. Bajo transformaciones propias de Lorentz:
+\begin{equation}
+\epsilon^{\mu\nu\rho\sigma}\rightarrow{\Lambda^{\mu}}_{\mu^{\prime}}{\Lambda^{\nu}}_{\nu^{\prime}}{\Lambda^{\rho}}_{\rho^{\prime}}{\Lambda^{\sigma}}_{\sigma^{\prime}}\epsilon^{\mu^{\prime}\nu^{\prime}\rho^{\prime}\sigma^{\prime}}=(\det\Lambda)\epsilon^{\mu\nu\rho\sigma}=\epsilon^{\mu\nu\rho\sigma}
+\end{equation}
+Así, las componentes del tensor $\epsilon$ tienen el mismo valor numérico en todos los sistemas de Lorentz. El único otro tensor invariante del grupo de Lorentz es $g_{\mu\nu}$.
+\subsection{Representaciones espinoriales}
+\noindent
+Las representaciones tensoriales no incluyen todas las representaciones de dimensión finita físicamente interesantes del grupo de Lorentz. Sabemos por la mecánica cuántica no relativista que, además de ellas, existen representaciones espinoriales de gran interés. Un espinor es un objeto matemático que describe grados de libertad asociados al espín semientero y que, bajo rotaciones o transformaciones de Lorentz, se transforma de manera distinta a un vector o tensor ordinario.
+\medskip\newline
+Estrictamente hablando, los espinores no son representaciones de $SO(3)$, ya que bajo rotaciones de $2\pi$ estos elementos cambian de signo. Sin embargo, como los observables en la teoría cuántica dependen de forma cuadrática de la función de onda, un cambio de signo es equivalente a una fase global que no altera el resultado. Esto significa que, para rotaciones espaciales, el grupo físicamente relevante para estos objetos no es $SO(3)$ sino $SU(2)$, es decir, el grupo especial de matrices unitarias de dimensión dos.
+\medskip\newline
+Las álgebras de Lie de $SU(2)$ y $SO(3)$ son la misma, y vienen dadas por el álgebra del momento angular:
+\begin{equation}
+[J^{i},J^{j}]=i\epsilon^{ijk}J^{k}
+\end{equation}
+\noindent
+Sin embargo, $SU(2)$ y $SO(3)$ difieren a nivel global (lejos de la identidad). En $SO(3)$, una rotación de $2\pi$ es equivalente a la identidad, sin embargo, al pasar a $SU(2)$ aparece una diferencia importante: las representaciones espinoriales no vuelven exactamente a su estado inicial tras una rotación de $2\pi$, sino que necesitan una rotación de $4\pi$.
+\medskip\newline
+Trabajar con $SU(2)$ permite incluir no solo las representaciones de espín entero, sino también las de espín semientero. De esta forma, las representaciones irreducibles quedan etiquetadas por:
+\[
+j = 0,\frac{1}{2},1,\frac{3}{2},\dots
+\]
+La representación con $j=\frac{1}{2}$ se llama representación espinorial, tiene dimensión $2$, y describe objetos con dos componentes, a los que denominamos espinores. En esta representación, los generadores $J^i$ se escriben en términos de las matrices de Pauli como:
+\begin{equation}
+J^{i}=\frac{\sigma^{i}}{2}
+\end{equation}
+\noindent
+Este objeto define la representación fundamental de $SU(2)$, ya que todas las demás se pueden construir con productos tensoriales de estos elementos. Por ejemplo, la composición de dos estados de espín $1/2$ da espín cero y espín 1:
+\begin{equation}
+\frac{1}{2}\otimes\frac{1}{2}=\mathbf{0}\oplus\mathbf{1}
+\end{equation}
+
+\subsubsection{Espinores en la teoría cuántica relativista}
+\noindent
+Queremos conservar los espinores en la teoría cuántica relativista, por lo que debemos ampliar el conjunto de representaciones del grupo de Lorentz. De esta forma, si partimos del álgebra de Lorentz dada por las ecs.~(2.54)$-$(2.56), y definimos las siguientes combinaciones entre los generadores $J$ y $K$:
+ 
+\begin{equation}
+{J}^{\pm} = \frac{{J} \pm i{K}}{2} \, .
+\end{equation}
+ \noindent
+El álgebra de Lie se convierte en:
+ 
+\begin{equation}
+\left[ J^{+,i}, J^{+,j} \right] = i\epsilon^{ijk} J^{+,k}
+\end{equation}
+ 
+\begin{equation}
+\left[ J^{-,i}, J^{-,j} \right] = i\epsilon^{ijk} J^{-,k}
+\end{equation}
+ 
+\begin{equation}
+\left[ J^{+,i}, J^{-,j} \right] = 0 \, .
+\end{equation}
+ \noindent
+y  tenemos dos copias del álgebra del momento angular.\footnote{Obsérvese que,
+debido al factor $i$, una representación de
+$SU(2) \times SU(2)$ con $J^{\pm}$ hermítico induce una representación de
+$SO(3,1)$ con $J$ hermítico pero $K$ antihermítico. Para el lector más
+matemático: $SU(2) \times SU(2)$ es el grupo de recubrimiento universal de
+$SO(4)$ (de forma similar al hecho de que $SU(2)$ es el grupo de recubrimiento
+universal de $SO(3)$) y $SO(4)$ es la versión euclídea del grupo de Lorentz, es
+decir, se obtiene tomando la variable temporal $t$ puramente imaginaria. El grupo
+de recubrimiento universal de $SO(3,1)$ es $SL(2,\mathbb{C})$.}
+ \medskip\newline
+Puesto que conocemos las representaciones de $SU(2)$, y aquí tenemos dos factores
+$SU(2)$ que conmutan, encontramos que:
+ 
+\begin{itemize}
+  \item Las representaciones del álgebra de Lorentz pueden etiquetarse mediante
+        dos semienteros: $(j_-, j_+)$.
+  \item La dimensión de la representación $(j_-, j_+)$ es $(2j_- + 1)(2j_+ + 1)$.
+  \item El generador de las rotaciones $J$ está relacionado con $J^+$ y
+        $J^-$ por $J = J^+ + J^-$; por lo tanto, mediante la
+        suma usual de momentos angulares en mecánica cuántica, en la
+        representación $(j_-, j_+)$ tenemos estados con todos los valores
+        posibles de espín $j$ en pasos enteros entre los valores $|j_+ - j_-|$ y
+        $|j_+ + j_-|$.
+\end{itemize}
+Las representaciones son en general complejas, y la dimensión de la
+representación es el número de componentes complejas independientes. En algunos
+casos podemos imponer una condición de realidad y $(2j_- + 1)(2j_+ + 1)$ pasa a
+ser el número de componentes reales independientes. Las representaciones
+$(j_-, j_+)$ deben incluir todas las representaciones tensoriales discutidas en
+la sección anterior, más las representaciones espinoriales. 
+\subsubsection*{Caso $(0,0)$}
+\noindent
+ Esta representación tiene dimensión uno. En ella,
+$J^{\pm} = 0$, así que también $J, K$ son cero. Por lo tanto, es la
+representación escalar.
+ \subsubsection*{Caso$\left(\tfrac{1}{2}, 0\right)$ y $\left(0, \tfrac{1}{2}\right)$}
+\noindent
+Estas representaciones tienen ambas dimensión dos y espín $1/2$, de modo que son
+representaciones espinoriales. 
+\medskip\newline
+Denotaremos\footnote{A veces en la literatura el índice de $\psi_L$ se denota, en cambio,
+por $\dot{\alpha}$ para subrayar que es un índice en una representación distinta
+en comparación con el índice de $\psi_R$.} por $(\psi_L)_\alpha$, con
+$\alpha = 1, 2$, a un espinor en $(1/2, 0)$, y por $(\psi_R)_\alpha$ a un espinor en
+$(0, 1/2)$. Debido a su importancia, se denomina espinor de Weyl
+Levógiro (de mano izquierda)  al asociado a  $\psi_L$ y espinor de Weyl
+Dextrógiro (de mano derecha) al que identifica  $\psi_R$, la razón de esta nomenclatura se aclarará más adelante. 
+\begin{equation}
+\text{Espinores de Weyl:} \quad
+\psi_L \in \left( \frac{1}{2}, 0 \right) \, , \qquad
+\psi_R \in \left( 0, \frac{1}{2} \right) \, .
+\end{equation}
+\noindent
+Estudiamos la forma explícita de los generadores $J, K$ sobre
+los espinores de Weyl. Consideremos primero la representación $(1/2, 0)$. Por
+definición, en esta representación $J^-$ está representado por una matriz
+$2 \times 2$, mientras que $J^+ = 0$. La solución de~(2.82) en términos de
+matrices $2 \times 2$ es, por supuesto, $J^- = \sigma/2$, y por lo
+tanto:
+ 
+\begin{equation}
+J = J^+ + J^- = \frac{\sigma}{2}
+\end{equation}
+ 
+\begin{equation}
+K = -i(J^+ - J^-) = i\frac{\sigma}{2} \, .
+\end{equation}
+\noindent
+Obsérvese que en esta representación los generadores $K^i$ no son hermíticos, esto es consecuencia del hecho de
+que el grupo de Lorentz es no compacto y, como sabemos, los grupos no compactos no tienen representaciones unitarias
+de dimensión finita. 
+\medskip\newline
+Podemos escribir explícitamente cómo se transforma un espinor de
+Weyl bajo transformaciones de Lorentz
+\begin{equation}
+\psi_L \to \Lambda_L \psi_L =
+\exp\left\{ (-i\theta - \eta) \cdot \frac{\sigma}{2} \right\} \psi_L \, .
+\end{equation}
+ \noindent
+Repitiendo el argumento para la representación $(0, 1/2)$, encontramos de nuevo que
+$J = \sigma/2$, pero $K = -i\sigma/2$, y por lo tanto, la transformación queda como:
+ 
+\begin{equation}
+\psi_R \to \Lambda_R \psi_R =
+\exp\left\{ (-i\theta + \eta) \cdot \frac{\sigma}{2} \right\} \psi_R \, .
+\end{equation}
+\noindent
+Nótese que $\Lambda_{L,R}$ son matrices complejas, y por lo tanto, necesariamente
+las dos componentes de un espinor de Weyl son números complejos.
+\newpage\noindent
+Usando la propiedad de las matrices de Pauli $\sigma^2 \sigma^i \sigma^2 =
+-\sigma^{i*}$ y la forma explícita de $\Lambda_{L,R}$, es fácil demostrar que:
+ 
+\begin{equation}
+\sigma^2 \Lambda_L^* \sigma^2 = \Lambda_R \, .
+\end{equation}
+\noindent
+De esto se sigue que:
+\begin{equation}
+\sigma^2 \psi_L^* \to \sigma^2 (\Lambda_L \psi_L)^*
+= (\sigma^2 \Lambda_L^* \sigma^2) \sigma^2 \psi_L^*
+= \Lambda_R (\sigma^2 \psi_L^*)
+\end{equation}
+\noindent
+donde hemos usado el hecho de que $\sigma^2 \sigma^2 = 1$. Por lo tanto, si
+$\psi_L \in (1/2, 0)$, entonces $\sigma^2 \psi_L^*$ es un espinor de Weyl
+dextrógiro,
+ 
+\begin{equation}
+\sigma^2 \psi_L^* \in \left( 0, \frac{1}{2} \right) \, .
+\end{equation}
+\subsubsection*{\underline{Conjugación de carga}}
+\noindent
+Definimos la operación de conjugación de carga sobre los espinores de Weyl como
+una operación que transforma $\psi_L$ en un nuevo espinor $\psi_L^c$ definido como:
+\begin{equation}
+\psi_L^c = i\sigma^2 \psi_L^* \, .
+\end{equation}
+ \noindent
+Entonces la conjugación de carga transforma un espinor de Weyl levógiro en un espinor que transforma como un espinor de Weyl
+dextrógiro. 
+\medskip\newline
+Tomando el complejo conjugado de esta ecuación, y denotando el espinor
+dextrógiro $\psi_L^c$ por $\psi_R$, tenemos $\psi_L = -i\sigma^2 \psi_R^*$
+(habiendo usado el hecho de que $\sigma^2$ es puramente imaginaria y
+$\sigma^2 \sigma^2 = 1$). Por lo tanto, definimos la conjugación de carga sobre un
+espinor dextrógiro $\psi_R$ como
+ 
+\begin{equation}
+\psi_R^c = -i\sigma^2 \psi_R^* \, ,
+\end{equation}
+\noindent
+El factor $i$ se elige de modo que, iterando la
+transformación dos veces, obtengamos la operación identidad.
+ 
+\begin{equation}
+(\psi_L^c)^c = (i\sigma^2 \psi_L^*)^c
+= -i\sigma^2 (i\sigma^2 \psi_L^*)^* = \psi_L \, .
+\end{equation}
+\subsubsection*{Caso $\left(\tfrac{1}{2}, \tfrac{1}{2}\right)$}
+\noindent 
+Esta representación tiene dimensión compleja cuatro, ya que se obtiene como el producto de dos representaciones de dimensión dos. Además, al combinar dos representaciones de espín \(1/2\), los valores posibles del espín total \(j\) vienen dados por la regla de suma de momentos angulares $|1/2 - 1/2| \leqslant j \leqslant 1/2 + 1/2$, es decir, $j = 0, 1$.
+\medskip\newline
+En otras palabras, el producto de dos representaciones de espín \(1/2\) se descompone en una parte escalar, de espín \(0\), y una parte vectorial, de espín \(1\). 
+\medskip\newline
+Comparando con lo visto hasta ahora, vemos que se trata de una representación
+tipo cuadrivector complejo. De esta forma, un elemento genérico de la representación
+puede escribirse como un par $((\psi_L)_\alpha, (\xi_R)_\beta)$, donde $\psi_L$ y
+$\xi_R$ son dos espinores de Weyl independientes, levógiro y dextrógiro,
+respectivamente, y $\alpha, \beta$ toman los valores $1, 2$. 
+\newpage\noindent
+Queremos hacer
+explícita la relación entre estas cuatro cantidades complejas y las cuatro
+componentes de un cuadrivector. En primer lugar, hemos visto anteriormente que, dado un espinor dextrógiro
+$\xi_R$, podemos formar un espinor levógiro $\xi_L \equiv -i\sigma^2 \xi_R^*$, y
+de manera similar, a partir de $\psi_L$ podemos construir
+$\psi_R \equiv i\sigma^2 \psi_L^*$.
+\medskip\newline
+Por lo tanto, si definimos las matrices $\sigma^\mu$ y
+$\bar{\sigma}^\mu$ como
+
+\begin{equation}
+\sigma^\mu = (1, \sigma^i) \, , \qquad
+\bar{\sigma}^\mu = (1, -\sigma^i) \, ,
+\end{equation}
+\noindent
+donde $\sigma^i$ son las matrices de Pauli y $1$ es la matriz identidad
+$2 \times 2$. Entonces, es fácil demostrar que:
+ 
+\begin{equation}
+\xi_R^\dagger \sigma^\mu \psi_R
+\end{equation}
+ 
+\begin{equation}
+\xi_L^\dagger \bar{\sigma}^\mu \psi_L
+\end{equation}
+\noindent
+transforman como cuadrivectores contravariantes. 
+\medskip\newline
+La matriz $\Lambda^\mu{}_\nu$, que describe la transformación de Lorentz de un cuadrivector, es real. Por tanto, si $V^\mu$ es un cuadrivector complejo, es compatible con la invariancia de Lorentz imponer la condición de realidad $V^\mu = (V^\mu)^*.$
+En efecto, si esta condición se cumple en un sistema de referencia, seguirá cumpliéndose en cualquier otro sistema relacionado mediante una transformación de Lorentz, ya que $\Lambda^\mu{}_\nu$ no introduce partes imaginarias. De este modo se obtiene la representación real del cuadrivector.
+\subsubsection*{Caso $(1, 0)$ y $(0, 1)$}
+\noindent
+Estas corresponden a tensores antisimétricos
+autoduales y antiautoduales $A^{\mu\nu}$, y cada una tiene dimensión compleja
+tres, es decir, dimensión real seis.
+
+\subsection{Representaciones de campos}
 %------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
 \input{Apendice/Appendix.tex}
