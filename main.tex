@@ -1630,7 +1630,7 @@ de Lorentz y de Poincaré son no compactos, y que las representaciones de
 dimensión infinita se obtienen introduciendo el espacio de Hilbert de estados
 de una partícula.
 \newpage
-\section{Grupo de Lorentz}
+\section{El grupo de Lorentz}
 \noindent
 El grupo de Lorentz se define como el grupo de transformaciones lineales de coordenadas, $x^\mu \to x'^\mu = \Lambda^\mu{}_\nu \, x^\nu$, que deja invariante la siguiente forma cuadrática:
 \begin{equation}
@@ -2350,6 +2350,326 @@ autoduales y antiautoduales $A^{\mu\nu}$, y cada una tiene dimensión compleja
 tres, es decir, dimensión real seis.
 
 \subsection{Representaciones de campos}
+\noindent
+Nuestra principal motivación para estudiar la simetría de Lorentz es construir una teoría de campos\footnote{En geometría diferencial, un campo sobre una variedad
+diferenciable \(M\) es una asignación suave que adjudica a cada punto de \(M\)
+un objeto geométrico. La estructura que formaliza esta idea es la de
+fibrado vectorial: una aplicación suave \(\pi:E\to M\) que localmente
+se identifica de forma suave con un producto \(U\times F\), siendo \(F\) un
+espacio vectorial fijo (la fibra típica), de modo que \(\pi\) corresponde a la
+proyección sobre el factor \(U\). La fibra sobre \(p\in M\) es
+\(E_p:=\pi^{-1}(p)\), que es un espacio vectorial.
+
+Un campo es entonces una sección suave del fibrado, esto es, una
+aplicación suave \(s:M\to E\) con
+\[
+\pi\circ s=\operatorname{id}_M .
+\]
+El conjunto de tales secciones se denota \(\Gamma(E)\). La condición
+\(\pi\circ s=\operatorname{id}_M\) expresa precisamente que \(s(p)\in E_p\)
+para cada \(p\in M\): el valor del campo en \(p\) vive en la fibra sobre \(p\)
+y depende suavemente de \(p\).
+
+Por ejemplo, \(X\in\Gamma(TM)\) es un campo vectorial, pues asigna a cada
+\(p\in M\) un vector tangente \(X_p\in T_pM\).} que sea invariante bajo transformaciones de este tipo. Un campo $\phi(x)$ es una función de
+las coordenadas con ciertas propiedades de transformación bien definidas.
+\medskip\newline
+De esta forma, si realizamos una cambio $
+x^{\mu}\;\rightarrow\;x'^{\mu}=\Lambda^{\mu}{}_{\nu}x^{\nu}$ sobre las coordenadas del sistema, el campo $\phi(x)$ se transformará en una nueva función 
+\begin{equation}
+\phi(x)\;\rightarrow\;\phi'(x')\,.
+\end{equation}
+ \noindent
+Definir cómo se transforma un campo significa establecer cómo está relacionado
+$\phi'(x')$ con $\phi(x)$.
+\newpage\noindent
+\subsection*{Campos Escalares}
+\noindent
+La transformación más simple posible es la de un campo escalar, donde el valor numérico del campo en un punto es un
+invariante Lorentz.
+\begin{equation}
+\phi'(x')=\phi(x)\,.
+\end{equation}
+ \noindent
+Es decir, un punto $P$ con coordenadas $x$ en un sistema de
+referencia y $x'$ en el sistema transformado, mantiene la forma funcional del campo independientemente de
+cómo se etiquete el punto.
+\medskip\newline
+Consideremos ahora una transformación de Lorentz infinitesimal:
+
+\begin{equation}
+x^{\rho}\;\rightarrow\;x'^{\rho}=x^{\rho}+\delta x^{\rho}
+\end{equation}
+\noindent
+con 
+$\delta x^{\rho}=\omega^{\rho}{}_{\sigma}\,x^{\sigma}
+=-\frac{i}{2}\,\omega_{\mu\nu}\,(J^{\mu\nu})^{\rho}{}_{\sigma}\,x^{\sigma}$.
+\medskip\newline
+Bajo
+esta transformación $\delta\phi\equiv\phi'(x')-\phi(x)=0$ por definición. Esto
+corresponde al hecho de que la representación escalar da una representación
+trivial de los generadores, $J^{\mu\nu}=0$. Sin embargo, en el caso de los
+campos, tenemos una posibilidad más interesante, ya que podemos considerar una
+variación infinitesimal a coordenada $x$ fija.
+\begin{equation}
+\delta_{0}\phi\equiv\phi'(x)-\phi(x)\,.
+\end{equation}
+ \noindent
+En próximas secciones
+veremos que $\delta\phi$  siempre proporcionan una
+representación de dimensión finita de los generadores. En cambio, al calcular $\delta_0\phi$, la diferencia no procede de una transformación interna, sino del hecho de que el campo transformado en $x$ está relacionado con el campo original. Por ello, aparece una contribución proporcional a las derivadas de $\phi$, que transforman al espacio base en el conjunto de los $\phi(P)$ con $P$ variando sobre todo el
+espacio-tiempo, o, en otras palabras, un espacio base de dimensión infinita. 
+ \medskip\newline
+Para hallar los generadores en esta representación, desarrollamos la ec.~(2.101)
+a primer orden en $\delta x$,
+\begin{equation}
+\delta_{0}\phi=\phi'(x'-\delta x)-\phi(x)=-\delta x^{\rho}\partial_{\rho}\phi(x)\,.
+\end{equation}
+\noindent
+Utilizando la representación general de Lorentz, esto puede reescribirse como:
+\begin{equation}
+\delta_{0}\phi=\frac{i}{2}\,\omega_{\mu\nu}\,(J^{\mu\nu})^{\rho}{}_{\sigma}\,
+x^{\sigma}\partial_{\rho}\phi
+\equiv-\frac{i}{2}\,\omega_{\mu\nu}L^{\mu\nu}\phi\,,
+\end{equation}
+ \noindent
+donde hemos definido
+\begin{equation}
+L^{\mu\nu}=-(J^{\mu\nu})^{\rho}{}_{\sigma}\,x^{\sigma}\partial_{\rho}
+=i(x^{\mu}\partial^{\nu}-x^{\nu}\partial^{\mu})\,.
+\end{equation}
+\noindent
+Podemos comprobar fácilmente que los operadores $L^{\mu\nu}$ satisfacen el
+álgebra de Lie~(2.52) y, por tanto, dan una representación de los generadores
+del grupo de Lorentz. 
+\medskip\newline
+Como se discutió antes, la base de la representación es el
+espacio de los campos escalares. Este es un espacio de funciones, de modo que es
+de dimensión infinita y, por tanto, esta es una representación de
+dimensión infinita del álgebra de Lorentz. 
+ \medskip\newline
+Recordando que, con nuestra signatura de la métrica, $p^{\mu}=+i\partial^{\mu}$, encontramos $L^{\mu\nu}=x^{\mu}p^{\nu}-x^{\nu}p^{\mu}$. En
+particular, para las rotaciones espaciales tenemos $L^{ij}=x^{i}p^{j}-x^{j}p^{i}$
+y $L^{i}=(1/2)\epsilon^{ijk}L^{jk}=\epsilon^{ijk}x^{j}p^{k}$, y reconocemos que
+$L^{i}$ es el momento angular orbital.
+ 
+\subsection*{Campos de Weyl}
+\noindent
+Un campo de Weyl izquierdo (left-handed) $\psi_{L}(x)$ se define como un
+campo que, bajo $x^{\mu}\rightarrow x'^{\mu}=\Lambda^{\mu}{}_{\nu}x^{\nu}$, se
+transforma como:
+ 
+% ec. (2.79)
+\begin{equation}
+\psi_{L}(x)\;\rightarrow\;\psi'_{L}(x')=\Lambda_{L}\psi_{L}(x)\,,
+\end{equation}
+\noindent
+Análogamente, un campo de Weyl derecho
+right-handed $\psi_{R}$ se transforma con $\Lambda_{R}$.
+\medskip\newline
+La representación de los generadores de Lorentz sobre $\psi_{L}$ puede hallarse calculando:
+\begin{equation}
+\begin{aligned}
+\delta_{0}\psi_{L}\equiv\psi'_{L}(x)-\psi_{L}(x)
+&=\psi'_{L}(x'-\delta x)-\psi_{L}(x)\\
+&=\psi'_{L}(x')-\delta x^{\rho}\partial_{\rho}\psi_{L}(x)-\psi_{L}(x)\\
+&=(\Lambda_{L}-1)\psi_{L}(x)-\delta x^{\rho}\partial_{\rho}\psi_{L}(x)\,.
+\end{aligned}
+\end{equation}
+\noindent
+Vemos que $\delta_{0}\psi_{L}$ está formado por dos partes. La primera
+proviene de la
+variación de la coordenada $\delta x^{\rho}$ y es la misma que para los campos
+escalares:
+\begin{equation}
+-\delta x^{\rho}\partial_{\rho}\psi_{L}=-\frac{i}{2}\,\omega_{\mu\nu}L^{\mu\nu}\psi_{L}\,,
+\end{equation}
+\noindent
+Escribiendo $\Lambda_{L}$ como una transformación general a partir de los generadores $S^{\mu\nu}$ de la representación $(1/2, 0)$:
+\begin{equation}
+\Lambda_{L}=e^{-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}}\,.
+\end{equation}
+\noindent
+Entonces la ec.~(2.106) se convierte en
+\begin{equation}
+\delta_{0}\psi_{L}=-\frac{i}{2}\,\omega_{\mu\nu}J^{\mu\nu}\psi_{L}
+\end{equation}
+ \noindent
+con
+\begin{equation}
+J^{\mu\nu}=L^{\mu\nu}+S^{\mu\nu}\,.
+\end{equation}
+ \noindent
+Comparándola con la ec.~(2.87) vemos que:
+\begin{equation}
+S^{i}=\frac{1}{2}\epsilon^{ijk}S^{jk}=\frac{\sigma^{i}}{2}\,,
+\end{equation}
+ \noindent
+mientras que
+\begin{equation}
+S^{i0}=i\,\frac{\sigma^{i}}{2}\,.
+\end{equation}
+\noindent
+Reconocemos la separación del momento angular en las
+contribuciones orbital y de espín. Es evidente que esta separación es
+completamente general y se cumple para cualquier representación. La parte
+orbital $L^{\mu\nu}$ siempre tiene su forma independientemente de la
+representación, mientras que $S^{\mu\nu}$ depende de la representación
+específica empleada\footnote{Del mismo modo, puede demostrarse que para $\psi_{R}$, se ha de satisfacer: $\delta_{0}\psi_{R}=-\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}\psi_{L}$. 
+
+Donde $A_R-1=-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}$, con $S^i=\sigma^i/2$ y $S^{i0}=-i\sigma^i/2$.}.
+ 
+\subsection*{Campos de Dirac}
+\noindent
+Dada una transformación de paridad $(t,\mathbf{x})\rightarrow(t,-\mathbf{x})$, los generadores del grupo de Lorentz presentan comportamientos diferentes.
+\medskip\newline
+Los boosts actúan como
+vectores verdaderos, es decir, cambian de signo, $\mathbf{K}\rightarrow-\mathbf{K}$, pues la transformación de paridad invierte la velocidad $\mathbf{v}$ del boost. Sin embargo, el momento angular, responsable de las rotaciones, se comporta como un pseudovector bajo paridad, es decir, no cambia de signo tras la transformación
+$\mathbf{J}\rightarrow\mathbf{J}$. 
+\medskip\newline
+Por tanto, una operación de paridad
+intercambia los generadores espinoriales $J^{i}_{\pm}$, como: 
+
+$$J^{i}_{+}\leftrightarrow J^{i}_{-}.$$
+\noindent
+Esto significa que, bajo una transformación de paridad, un objeto en la
+representación $(j_{-},j_{+})$ se transforma en un objeto en la representación
+$(j_{+},j_{-})$. Por tanto, la representación $(j_{-},j_{+})$ del grupo de
+Lorentz no es, al mismo tiempo, una base para una representación de la
+transformación de paridad, a menos que $j_{-}=j_{+}$. 
+\medskip\newline
+Todo esto nos lleva a concluir que los espinores de Weyl $\psi_{L}$
+y $\psi_{R}$, por separado, no son una base adecuada para una representación de la transformación de paridad. 
+\medskip\newline
+En la Naturaleza, sabemos experimentalmente que la paridad es violada por las
+interacciones débiles. A nivel teórico, esto se refleja en el hecho de que, en el Modelo Estándar, las componentes izquierda y derecha de las partículas de
+espín $1/2$ entran en la teoría de forma muy diferente. Sin embargo, a energías suficientemente bajas, el efecto de las interacciones débiles es pequeño, y las
+contribuciones dominantes provienen de las interacciones electromagnética y
+fuerte, que ambas conservan la paridad. En este caso, es conveniente trabajar
+con campos que proporcionen una representación de las transformaciones de
+Lorentz y de paridad. 
+\medskip\newline
+Definimos entonces el campo de Dirac
+como\footnote{Más precisamente, este es el campo de Dirac escrito en la base
+quiral.}:
+
+\begin{equation}
+\Psi=\begin{pmatrix}\psi_{L}\\ \psi_{R}\end{pmatrix}\,.
+\end{equation}
+\noindent
+Este campo tiene cuatro componentes complejas, y proporciona
+una base para una representación tanto de las transformaciones de Lorentz como
+de paridad. En efecto, bajo una transformación de Lorentz:
+
+$$\Psi\rightarrow\Lambda_{D}\Psi$$
+\noindent
+con:
+\begin{equation}
+\Lambda_{D}=\begin{pmatrix}\Lambda_{L} & 0\\ 0 & \Lambda_{R}\end{pmatrix}\,,
+\end{equation}
+ \noindent
+Bajo una
+transformación de paridad $P$, las coordenadas cambian como
+$x^{\mu}\rightarrow x'^{\mu}=(t,-\mathbf{x})$, mientras que el campo evoluciona como:
+\begin{equation}
+\begin{pmatrix}\psi_{L}(x)\\ \psi_{R}(x)\end{pmatrix}
+\;\rightarrow\;
+\begin{pmatrix}\psi_{R}(x')\\ \psi_{L}(x')\end{pmatrix}
+\end{equation}
+\newpage\noindent
+y, por tanto:
+\begin{equation}
+\Psi(x)\;\rightarrow\;\begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix}\Psi(x')\,.
+\end{equation}
+\noindent
+Dado un espinor de Dirac $\Psi$, la
+conjugación de carga nos permite definir un nuevo espinor:
+\begin{equation}
+\Psi^{c}=\begin{pmatrix}-i\sigma_{2}\psi^{*}_{R}\\ i\sigma_{2}\psi^{*}_{L}\end{pmatrix}
+=-i\begin{pmatrix}0 & \sigma_{2}\\ -\sigma_{2} & 0\end{pmatrix}\Psi^{*}\,.
+\end{equation}
+\noindent
+que, como para los espinores de Weyl, iterando dos veces la conjugación de carga
+devuelve la transformación identidad,
+\begin{equation}
+(\Psi^{c})^{c}=\Psi\,.
+\end{equation}
+\noindent
+Nótese que las coordenadas $x^{\mu}$ no cambian bajo la conjugación de carga.
+Entenderemos la importancia de la conjugación de carga cuando cuanticemos la
+teoría y encontremos partículas y antipartículas.
+\medskip\newline
+Los espinores de Dirac son los objetos básicos en la electrodinámica cuántica, dado que la QED preserva la paridad y la conjugación de carga. En el Modelo Estándar, la paridad y la conjugación de
+carga no son simetrías y $\psi_{L}$, $\psi_{R}$ aparecen por separado, de forma
+no simétrica. Por tanto, los espinores de Weyl son objetos más fundamentales que
+los espinores de Dirac.
+ 
+\subsection*{Campos de Majorana}
+\noindent
+Un espinor de Majorana es un espinor de Dirac en el que $\psi_{L}$ y $\psi_{R}$ no son independientes, sino que $\psi_{R}=i\sigma_{2}\psi^{*}_{L}$,
+\begin{equation}
+\Psi_{M}=\begin{pmatrix}\psi_{L}\\ i\sigma_{2}\psi^{*}_{L}\end{pmatrix}\,.
+\end{equation}
+\noindent
+Por lo tanto, tiene el mismo número de grados de libertad que un espinor de Weyl, aunque
+está escrito en la forma de un espinor de Dirac. 
+\medskip\newline
+De esta definición se deduce que
+un espinor de Majorana es invariante bajo conjugación de carga
+
+\begin{equation}
+\Psi^{c}_{M}=\Psi_{M}\,.
+\end{equation}
+\noindent
+Si tenemos un campo escalar complejo $\phi(x)$, podemos imponerle
+una condición de realidad $\phi(x)=\phi^{*}(x)$, y esta es una condición
+invariante Lorentz: dado que $\phi$ y $\phi^{*}$ son ambos invariantes Lorentz,
+si imponemos $\phi=\phi^{*}$ en un sistema de referencia, tendremos
+$\phi=\phi^{*}$ en cualquier otro sistema. Para un
+espinor de Dirac $\Psi$ la situación es diferente; $\Psi$ es un campo complejo, y
+la condición $\Psi=\Psi^{*}$ no es invariante Lorentz, ya que la matriz
+$\Lambda_{D}$ no es real. Por tanto, si imponemos la relación
+$\Psi=\Psi^{*}$ en un sistema de referencia, en general no se cumplirá en otro
+sistema de Lorentz. En cambio, la condición~(2.120) es por construcción
+invariante Lorentz, ya que es una consecuencia de la definición~(2.119), que a su
+vez expresa el enunciado invariante Lorentz de que $i\sigma_{2}\psi^{*}_{L}$ es un espinor
+derecho (right-handed). Puesto que $\Psi^{c}_{M}$ involucra la conjugación
+compleja, la relación es invariante
+Lorentz entre $\Psi$ y $\Psi^{*}$ y, en este sentido, se denomina condición de
+realidad.
+\medskip\newline
+Así, podemos ver los campos de Majorana como campos de Dirac ``reales'', con
+respecto a la única condición de realidad invariante Lorentz posible.
+\medskip\newline
+Los espinores de Majorana son fundamentales en la
+descripción del neutrino. 
+ 
+\subsection*{2.6.5 \quad Campos vectoriales}
+\noindent
+La definición de campos vectoriales en este punto es obvia. Un campo vectorial $V^{\mu}(x)$ se define como un campo que, bajo
+$x^{\mu}\rightarrow x'^{\mu}=\Lambda^{\mu}{}_{\nu}x^{\nu}$, se transforma como:
+\begin{equation}
+V^{\mu}(x)\;\rightarrow\;V'^{\mu}(x')=\Lambda^{\mu}{}_{\nu}V^{\nu}(x)\,.
+\end{equation}
+\noindent
+Sabemos que un campo vectorial general tiene
+una componente de espín-0 y una de espín-1. Un ejemplo de campo vectorial que
+será importante para nosotros es el campo gauge $A^{\mu}(x)$ del
+electromagnetismo. Veremos que $A^{\mu}(x)$ está sujeto a
+ciertas condiciones, derivadas de la invariancia gauge, que eliminan la
+componente de espín-0 y el estado con $(j=1,\,j_{z}=0)$, donde $z$ es la
+dirección de propagación.
+\medskip\newline
+Dado que un campo vectorial pertenece a la representación $(1/2,1/2)$, tiene
+$j_{-}=j_{+}$ y, por tanto, es una base para la representación de la paridad. Un
+vector verdadero se transforma como $(V^{0},\mathbf{V})\rightarrow(V^{0},-\mathbf{V})$
+mientras que un pseudovector (o vector axial) se transforma como
+$(V^{0},\mathbf{V})\rightarrow(-V^{0},\mathbf{V})$.
+\medskip\newline
+Los campos tensoriales se definen de forma similar.
+ 
+\section{El grupo de Poincaré}
+
 %------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
 \input{Apendice/Appendix.tex}

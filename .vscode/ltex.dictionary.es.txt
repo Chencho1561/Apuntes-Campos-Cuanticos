@@ -49,3 +49,7 @@ simetrizando
 ecs
 antihermítico
 semienteros
+pseudovector
+QED
+Majorana
+gauge
