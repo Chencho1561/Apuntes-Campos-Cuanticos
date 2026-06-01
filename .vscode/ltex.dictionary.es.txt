@@ -53,3 +53,7 @@ pseudovector
 QED
 Majorana
 gauge
+lagrangiano
+helicidad
+lagrangiano
+diagonalizados

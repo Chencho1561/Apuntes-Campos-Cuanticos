@@ -2669,7 +2669,218 @@ $(V^{0},\mathbf{V})\rightarrow(-V^{0},\mathbf{V})$.
 Los campos tensoriales se definen de forma similar.
  
 \section{El grupo de Poincaré}
+\noindent
+La teoría de campos que queremos desarrollar exige, además de la simetría bajo transformaciones de Lorentz, una invariancia bajo las traslaciones espacio-temporales\footnote{Esta invariancia se origina en la simetría que presenta el universo bajo traslaciones espacio-temporales.}. Un elemento genérico del grupo
+de traslaciones puede escribirse como:
+\begin{equation}
+\exp\{-iP^{\mu}a_{\mu}\}
+\end{equation}
+\noindent
+donde $a_{\mu}$ son los parámetros de la traslación,
+$x^{\mu}\rightarrow x^{\mu}+a^{\mu}$, y las componentes del operador
+cuadrimomento $P^{\mu}$ son sus generadores. 
+\medskip\newline
+El grupo de Lorentz junto con las traslaciones definen un grupo llamado el grupo de Poincaré, también conocido como el
+grupo de Lorentz inhomogéneo o a veces denotado como $ISO(3,1)$, donde ``I''
+significa inhomogéneo.
+\medskip\newline
+Dado que las traslaciones conmutan entres sí, tenemos la siguiente álgebra:
+\begin{equation}
+[P^{\mu},P^{\nu}]=0\,.
+\end{equation}
+\noindent
+Para hallar el conmutador entre $P^{\mu}$ y $J^{\rho\sigma}$ podemos partir de
+los conmutadores
+\begin{equation}
+[J^{i},P^{j}]=i\epsilon^{ijk}P^{k}\,,
+\end{equation}
+\begin{equation}
+[J^{i},P^{0}]=0\,,
+\end{equation}
+\noindent
+que expresan el hecho de que $P^{i}$ es un vector bajo rotaciones y de que la
+energía es un escalar bajo rotaciones. 
+\medskip\newline
+La única generalización covariante
+Lorentz es:
+\begin{equation}
+[P^{\mu},J^{\rho\sigma}]=i\left(\eta^{\mu\rho}P^{\sigma}-\eta^{\mu\sigma}P^{\rho}\right)\,.
+\end{equation}
+\noindent
+que, junto con el álgebra de Lorentz, las ecs.~(2.124) y~(2.125), definen el álgebra del grupo de Poincaré. 
+\newpage\noindent
+En términos de $J^{i}$, $K^{i}$, $P^{0}=H$ y $P^{i}$ se
+escribe:
+\begin{equation}
+[J^{i},J^{j}]=i\epsilon^{ijk}J^{k}\,,\qquad
+[J^{i},K^{j}]=i\epsilon^{ijk}K^{k}\,,\qquad
+[J^{i},P^{j}]=i\epsilon^{ijk}P^{k}\,,
+\end{equation}
 
+\begin{equation}
+[K^{i},K^{j}]=-i\epsilon^{ijk}J^{k}\,,\qquad
+[P^{i},P^{j}]=0\,,\qquad
+[K^{i},P^{j}]=iH\delta^{ij}\,,
+\end{equation}
+
+\begin{equation}
+[J^{i},H]=0\,,\qquad
+[P^{i},H]=0\,,\qquad
+[K^{i},H]=iP^{i}\,.
+\end{equation}
+
+\noindent
+Estas ecuaciones expresan el hecho de que los $J^{i}$ generan las
+rotaciones espaciales y de que $K^{i}$, $P^{i}$ son vectores bajo rotaciones, establecen que $J^{i}$ y $P^{i}$ conmutan con el
+generador de las traslaciones temporales y, por tanto, son cantidades
+conservadas; los $K^{i}$, en cambio, no se conservan, y esta es la razón por la que los autovalores de $\mathbf{K}$ no se usan para etiquetar los estados físicos.
+\subsection{Representación en los campos}
+\noindent
+Los campos, tal y como vimos en la sección anterior, proporcionan una representación de dimensión infinita del grupo de Lorentz, cuyos generadores $J^{\mu\nu}$ se representan como:
+\begin{equation}
+J^{\mu\nu}=L^{\mu\nu}+S^{\mu\nu}
+\end{equation} 
+\noindent
+donde:
+$
+L^{\mu\nu}=i(x^{\mu}\partial^{\nu}-x^{\nu}\partial^{\mu})
+$ es la parte orbital, que es la misma para cualquier campo, mientras que $S^{\mu\nu}$ es la parte de espín, que es diferente para cada campo, y no depende de las coordenadas $x^{\mu}$. 
+\medskip\newline
+Para obtener una representación del grupo completo de Poincaré en los campos, debemos encontrar cómo representar el operador cuadrimomento $P^{\mu}$ sobre estos objetos matemáticos, es decir, tenemos que especificar la ley de transformación de los campos bajo traslaciones. Requerimos que todos los campos, independientemente de su propiedad de transformación bajo el grupo de Lorentz, se comporten como escalares bajo traslaciones espacio-temporales.
+\medskip\newline
+Denotando por $\phi$ a un campo genérico, entonces, bajo una traslación $x\rightarrow x^{\prime}=x+a$, todos los campos, independientemente de sus propiedades de Lorentz, se transforman como:
+\begin{equation}
+\phi^{\prime}(x^{\prime})=\phi(x).
+\end{equation} % (2.106) [cite: 60, 61]
+\noindent
+Infinitesimalmente, $x^{\mu}\rightarrow x^{\prime\mu}=x^{\mu}+\epsilon^{\mu}$ tenemos, que a primer orden en $\epsilon$:
+\begin{equation}
+\delta_{0}\phi\equiv\phi^{\prime}(x)-\phi(x)=\phi^{\prime}(x^{\prime}-\epsilon)-\phi(x)=-\epsilon^{\mu}\partial_{\mu}\phi(x).
+\end{equation} 
+\noindent
+Utilizando la forma explícita del operador de traslación, se deduce que:
+\begin{equation}
+\phi^{\prime}(x^{\prime}-\epsilon)=e^{-iP^{\mu}(-\epsilon_{\mu})}\phi^{\prime}(x^{\prime})=e^{i\epsilon_{\mu}P^{\mu}}\phi(x)
+\end{equation}
+y por lo tanto:
+\begin{equation}
+\delta_{0}\phi=i\epsilon_{\mu}P^{\mu}\phi(x).
+\end{equation} 
+\noindent
+Todo esto permite representar al operador momento como:
+\begin{equation}
+P^{\mu}=+i\partial^{\mu}.
+\end{equation} 
+\newpage\noindent
+La forma explícita de $J^{\mu\nu}$ y de $P^{\mu}$ ha sido encontrada exigiendo que los campos tengan propiedades de transformación bien definidas bajo el grupo de Poincaré, por lo tanto, estas expresiones deben satisfacer automáticamente el álgebra de este grupo. Podemos comprobar esto fácilmente observando que $S^{\mu\nu}$ no depende de las coordenadas y, por lo tanto, conmuta con $\partial^{\mu}$, mientras que $[\partial^{\mu},x^{\nu}]=g^{\mu\nu}$. Lo que conduce al siguiente resultado:
+\begin{equation}
+[P^{\mu},J^{\rho\sigma}]=[i\partial^{\mu},i(x^{\rho}\partial^{\sigma}-x^{\sigma}\partial^{\rho})]=-g^{\mu\rho}\partial^{\sigma}+g^{\mu\sigma}\partial^{\rho} =i(g^{\mu\rho}P^{\sigma}-g^{\mu\sigma}P^{\rho}),
+\end{equation} % (2.112) [cite: 85, 86]
+
+\subsection{Representación sobre los estados de una partícula}
+\noindent
+La representación del grupo de Poincaré sobre los campos nos permite construir lagrangianos invariantes de Poincaré\footnote{
+Al conocer la representación en la que transforman los campos, se pueden construir combinaciones covariantes de estos y de sus derivadas, contrayendo todos los índices de manera compatible con dicha representación. Así, el lagrangiano resultante transforma como un escalar, lo que hace que la acción sea invariante de Poincaré.
+}. A nivel clásico, una descripción lagrangiana es todo lo que necesitamos para especificar la dinámica del sistema. Cuánticamente, sin embargo, uno de nuestros objetivos será comprender cómo emerge el concepto de partícula a partir de la cuantización del campo, por lo que representar el grupo de Poincaré utilizando como base el espacio de Hilbert de una partícula libre es un caso de estudio importante. 
+\medskip\newline
+Escribiendo los estados de una partícula libre de momento $\mathbf{p}$ como $|\mathbf{p}, s\rangle$, donde $s$ etiqueta colectivamente todos los demás números cuánticos relevantes del sistema, dado que $\mathbf{p}$ es una variable continua no acotada, este espacio base será de dimensión infinita. 
+\medskip\newline
+El teorema de Wigner establece que en un espacio de Hilbert definido con autoestados generalizados, cualquier transformación de simetría puede representarse por un operador unitario. Por lo tanto, en este espacio base, una transformación de Poincaré se representará por una matriz unitaria, donde los generadores $J^{i}$, $K^{i}$, $P^{i}$ y $H$ serán operadores hermíticos por definición.
+\medskip\newline
+Las representaciones están etiquetadas por los operadores de Casimir. En el grupo de Poincaré, un Casimir importante se encuentra fácilmente, y es $P_{\mu}P^{\mu}$, que, para el estado de una partícula, toma el valor $m^{2}$, con $m$ la masa de la partícula. Usando las relaciones de conmutación del grupo, se puede verificar que hay un segundo operador de Casimir dado por $W_{\mu}W^{\mu}$, donde 
+\begin{equation}
+W^{\mu}=-\frac{1}{2}\epsilon^{\mu\nu\rho\sigma}J_{\nu\rho}P_{\sigma}
+\end{equation} 
+se denomina cuadrivector de Pauli-Lubanski. 
+\medskip\newline
+Demostrar que $W_{\mu}W^{\mu}$ es un operador de Casimir es directo, ya que $W^{\mu}$ es claramente un cuadrivector, por lo que $W_{\mu}W^{\mu}$, al ser un escalar, es invariante de Lorentz, conmutando con $J^{\mu\nu}$. A su vez, como $[W^{\mu},P^{\nu}]=0$, el casimir $W_{\mu}W^{\mu}$ conmuta también con $P^{\nu}$.
+\medskip\newline
+Dado que $W_{\mu}W^{\mu}$ es invariante de Lorentz, podemos calcularlo en el sistema de referencia que prefiramos. Si $m\ne0$, es conveniente elegir el sistema en reposo de la partícula; en este sistema $W^{\mu}=(-m/2)\epsilon^{\mu\nu\rho0}J_{\nu\rho}=(m/2)\epsilon^{0\mu\nu\rho}J_{\nu\rho}$, así que $W^{0}=0$ mientras que:
+\begin{equation}
+W^{i}=\frac{m}{2}\epsilon^{0ijk}J^{jk}=\frac{m}{2}\epsilon^{ijk}J^{jk}=mJ^{i}.
+\end{equation} 
+\noindent
+Por lo tanto, para un estado de una partícula con masa $m$ y espín $j$ tenemos:
+\begin{equation}
+-W_{\mu}W^{\mu}=m^{2}j(j+1) \quad (m\ne0).
+\end{equation}
+\newpage\noindent
+Si, por el contrario, $m=0$, el sistema en reposo no existe, pero podemos elegir un sistema donde $P^{\mu}=(\omega,0,0,\omega)$. En este sistema, un cálculo directo da $W^{0}=W^{3}=\omega J^{3}$, $W^{1}=\omega(J^{1}-K^{2})$ y $W^{2}=\omega(J^{2}+K^{1})$. Por lo tanto:
+\begin{equation}
+-W_{\mu}W^{\mu}=\omega^{2}[(K^{2}-J^{1})^{2}+(K^{1}+J^{2})^{2}], \quad (m=0).
+\end{equation}
+\noindent
+EN el límite $m\rightarrow0$ deberemos estudiar por separado las representaciones masivas y sin masa.
+\subsubsection{Representaciones masivas} 
+\noindent
+Los estados de una partícula quedan definidos por $P^{\mu}P_{\mu}=m^{2}$ y $W_{\mu}W^{\mu}=-m^{2}j(j+1)$. Nos restringiremos a $m$ real\footnote{En principio también existe la posibilidad de representaciones con $m^{2}<0$, conocidas como taquiones. En teoría de campos, la aparición de un modo taquiónico es la señal de una inestabilidad, y refleja el hecho de que hemos expandido alrededor del vacío equivocado.} y positiva. Por lo tanto, las representaciones están etiquetadas por la masa $m$ y por el espín $j$. 
+\medskip\newline
+Podemos entender esto mejor observando que, si $m\ne0$, con una transformación de Lorentz podemos llevar $P^{\mu}$ a la forma $P^{\mu}=(m,0,0,0)$. Esta elección de $P^{\mu}$ todavía nos deja con la libertad de realizar rotaciones espaciales. En otras palabras, el espacio de los estados de una partícula con momento $P^{\mu}=(m,0,0,0)$ es todavía una base para la representación de las rotaciones espaciales. El grupo de transformaciones que deja invariante una elección dada de $P^{\mu}$ se llama grupo pequeño. En este caso, dado que queremos incluir representaciones espinoriales, el grupo pequeño es $SU(2)$. Las representaciones masivas están por tanto etiquetadas por la masa $m$ y por el espín $j=0,1/2,1,...$.
+\subsubsection{Representaciones sin masa} 
+\noindent
+Cuando $P^{2}=0$ el sistema en reposo no existe, pero podemos reducir $P^{\mu}$ a la forma $P^{\mu}=(\omega,0,0,\omega)$. El grupo pequeño es el conjunto de transformaciones de Poincaré que deja inalterado este vector. Se ve inmediatamente que las rotaciones en el plano $(x,y)$ dejan este $P^{\mu}$ invariante, es decir, el grupo $SO(2)$ generado por $J^{3}$. Además, hay dos transformaciones de Lorentz menos evidentes que no cambian $P^{\mu}$, para encontrar la solución más general, basta con restringirse a transformaciones de Lorentz infinitesimales ${\Lambda^{\mu}}_{\nu}={\delta^{\mu}}_{\nu}+{\omega^{\mu}}_{\nu}$, y buscar la matriz más general $\omega^{\mu\nu}$ que satisfaga $\omega^{\mu\nu}=-\omega^{\nu\mu}$ (para tener una transformación de Lorentz). Por lo tanto:
+\begin{equation}
+\omega^{\mu\nu}P_{\nu}=0
+\end{equation} 
+\begin{equation}
+\begin{pmatrix}0&\omega^{01}&\omega^{02}&\omega^{03}\\ -\omega^{01}&0&\omega^{12}&\omega^{13}\\ -\omega^{02}&-\omega^{12}&0&\omega^{23}\\ -\omega^{03}&-\omega^{13}&-\omega^{23}&0\end{pmatrix}\begin{pmatrix}1\\ 0\\ 0\\ -1\end{pmatrix}=0,
+\end{equation} % (2.118) (2.119) [cite: 143, 144, 145]
+lo que da $\omega^{03}=0$, $\omega^{01}+\omega^{13}=0$ y $\omega^{02}+\omega^{23}=0$. Denotando $\omega^{01}=\alpha$, $\omega^{02}=\beta$ y $\omega^{12}=\theta$ vemos que la transformación de Lorentz más general que deja $P^{\mu}$ invariante se puede escribir como:
+\begin{equation}
+\Lambda=e^{-i(\alpha A+\beta B+\theta C)}
+\end{equation} 
+\noindent
+donde, bajando el segundo índice de Lorentz, los generadores $A$, $B$ y $C$ se representan por las siguientes matrices:
+\begin{equation}
+{A^{\mu}}_{\nu}=i\begin{pmatrix}0&-1&0&0\\ -1&0&0&1\\ 0&0&0&0\\ 0&-1&0&0\end{pmatrix}
+\quad
+{B^{\mu}}_{\nu}=i\begin{pmatrix}0&0&-1&0\\ 0&0&0&0\\ -1&0&0&1\\ 0&0&-1&0\end{pmatrix}
+\quad
+{C^{\mu}}_{\nu}=i\begin{pmatrix}0&0&0&0\\ 0&0&-1&0\\ 0&1&0&0\\ 0&0&0&0\end{pmatrix}
+\end{equation}
+\noindent
+Comparando con la ecuación anterior,${C^{\mu}}_{\nu}$ no es más que ${(J^{3})^{\mu}}_{\nu}$, es decir, la expresión explícita de $J^{3}$ en la representación de cuadrivectores. De manera similar, encontramos que ${A^{\mu}}_{\nu}=(K^{1}+{J^{2})^{\mu}}_{\nu}$ y ${B^{\mu}}_{\nu}=(K^{2}-{J^{1})^{\mu}}_{\nu}$. Así que en el caso sin masa:
+\begin{equation}
+-W_{\mu}W^{\mu}=\omega^{2}(A^{2}+B^{2}).
+\end{equation} % (2.123) [cite: 159, 160]
+\noindent
+Usando las reglas de conmutación del grupo de Lorentz, o directamente las expresiones explícitas dadas arriba, se encuentra que los operadores $J^{3}$, $A$ y $B$ cierran un álgebra de Lie del grupo:
+\begin{equation}
+[J^{3},A]=+iB, \quad [J^{3},B]=-iA, \quad [A,B]=0.
+\end{equation} 
+Formalmente, esta es la misma álgebra generada por los operadores $p^{x}$, $p^{y}$ y $L^{z}$, que describen las traslaciones y rotaciones de un plano euclidiano, con $A$ y $B$ desempeñando el papel de los operadores de traslación.
+\medskip\newline
+Las matrices $A^{\mu}$ y $B^{\mu}$ no son hermíticas\footnote{Serían hermíticas si las escribiéramos como $A^{\mu\nu}$, $B^{\mu\nu}$ y $C^{\mu\nu}$.}. Esto es como debe ser, ya que son matrices de $4\times4$, y por lo tanto son una representación de dimensión finita de generadores de Lorentz no compactos.
+\medskip\newline
+Podemos, sin embargo, representar el álgebra tomando como espacio base los estados de una partícula con momento $\mathbf{p}$. En esta representación $A$ y $B$ son operadores hermíticos debido al teorema de Wigner y, dado que conmutan, pueden ser diagonalizados simultáneamente. Denotando por $a, b$ los respectivos autovalores, obtenemos:
+\begin{equation}
+A|\mathbf{p};a,b\rangle=a|\mathbf{p};a,b\rangle, \quad B|\mathbf{p};a,b\rangle=b|\mathbf{p};a,b\rangle.
+\end{equation}
+De esta forma, si $a$ y $b$ son distintos de cero, podemos encontrar un conjunto continuo de autovalores. Esto significa que, a menos que $a=b=0$, encontramos representaciones correspondientes a partículas sin masa con un grado de libertad interno continuo\footnote{Estas representaciones hasta ahora no encuentran aplicaciones físicas, y por lo tanto nos restringimos a estados con $a=b=0$.} $\theta$. 
+\medskip\newline
+Dado que para partículas sin masa obtuvimos $-W_{\mu}W^{\mu}=\omega^{2}(A^{2}+B^{2})$, en estos estados y, solo en estos estados, se cumplirá $-W_{\mu}W^{\mu}=0$, lo cual concuerda con el límite $m\rightarrow0$. El grupo pequeño es simplemente $SO(2)$ o, equivalentemente, $U(1)$.
+\medskip\newline
+Como para cualquier grupo abeliano, las representaciones irreducibles de $SO(2)$ son unidimensionales, el generador del grupo de rotaciones en el plano $(x,y)$ es el momento angular $J^{3}$, y por lo tanto, las representaciones unidimensionales están etiquetadas por el autovalor $h$ de $J^{3}$. Este parámetro representa el momento angular en la dirección de propagación de la partícula, y se denomina helicidad.
+\medskip\newline
+Se puede demostrar que $h$ está cuantizado\footnote{En realidad, hay un sutil punto técnico en la cuantización de $h$. Se define $\lambda_{m}=\langle j,m+1|(J_{x}+iJ_{y})|j,m\rangle$ y, usando las relaciones de conmutación entre los tres $J_{i}$, se encuentra una relación de recurrencia $|\lambda_{m-1}|^{2}-|\lambda_{m}|^{2}=2m$[cite: 191]. La condición de que esta relación de recurrencia no produzca un $|\lambda_{m}|^{2}$ negativo proporciona la cuantización de $m=j_{z}$.}, $h=0,\pm1/2,\pm1,...$
+\newpage\noindent
+Desde el punto de vista de las representaciones del grupo de Poincaré, una partícula sin masa con helicidad $+h$ y una partícula sin masa con helicidad $-h$ son lógicamente dos especies diferentes de partículas, ya que pertenecen a dos representaciones diferentes del grupo de Poincaré. Sin embargo, la helicidad es la proyección del momento angular a lo largo de la dirección de movimiento, por lo que se puede escribir como:
+\begin{equation}
+h=\hat{\mathbf{p}}\cdot \mathbf{J}
+\end{equation} % (2.132) [cite: 203, 204]
+donde $\hat{\mathbf{p}}$ es el vector unitario en la dirección de propagación. Vemos que la helicidad es un pseudoescalar, es decir, cambia de signo bajo paridad. Si la interacción conserva la paridad, a cada partícula de helicidad $h$ le debe corresponder otra partícula con helicidad $-h$, y estos dos estados de helicidad deben entrar en la teoría de forma simétrica. 
+\medskip\newline
+Dado que la interacción electromagnética conserva la paridad, es más natural definir el fotón como una representación del grupo de Poincaré y de la paridad, es decir, agrupar los dos estados de helicidad $h=\pm1$. Los dos estados $h=\pm1$ se denominan entonces fotones levógiros $(h=-1)$ y dextrógiros $(h=+1)$
+\medskip\newline
+De manera similar, los dos estados con helicidad $h=\pm2$ que median la interacción gravitacional se consideran mejor como dos estados de polarización de la misma partícula, el gravitón.
+\medskip\newline
+Por el contrario, los neutrinos solo tienen interacciones débiles, las cuales no conservan la paridad, y los dos estados con helicidad $h=\pm1/2$ reciben nombres diferentes. Se reserva neutrino para $h=-1/2$, y antineutrino para $h=+1/2$.
+
+Siempre podemos hablar de helicidad como la proyección del momento angular en la dirección del movimiento, pero solamente es una cantidad invariante bajo transformaciones de Poincaré para partículas sin masa. A veces se usa el término quiralidad, que tiene que ver con si la partícula
+se transforma bajo la representación \textit{left-handed} o \textit{right-handed} del grupo de Lorentz. La quiralidad coincide con la helicidad para partículas sin masa.
+
+\chapter{Teoría Clásica de Campos}
+\noindent
 %------------------------------------------------------------------------------------------------------------------------------------------
 \clearpage
 \input{Apendice/Appendix.tex}
