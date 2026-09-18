@@ -1,6 +1,7 @@
 *.aux
 *.bbl
 *.blg
+*.xdv
 *.brf
 *.idx
 *.ilg
